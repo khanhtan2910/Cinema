@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ShowtimesController {
 	@RequestMapping("/hello")
 	public String hello() {
-		return "/hello/ 123123";
+		return "/hello/  123123123123";
 	}
 }
