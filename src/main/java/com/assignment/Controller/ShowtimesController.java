@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ShowtimesController {
-	@RequestMapping("/hello")
+	@RequestMapping("/Showtime")
 	public String hello() {
-		return "/ShowtimeMovie/12312656";
+		return "Showtimes/ShowtimeMovie";
 	}
 }
