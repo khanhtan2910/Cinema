@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 public class Booking implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	Integer bookid;
 	@ManyToOne
 	@JoinColumn(name = "Userid")

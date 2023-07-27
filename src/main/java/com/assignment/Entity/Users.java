@@ -39,5 +39,5 @@ public class Users implements Serializable{
 	List<Booking> Booking;
 	@ManyToOne
 	@JoinColumn(name = "Roleid")
-	Role Role;
+	Role role;
 }

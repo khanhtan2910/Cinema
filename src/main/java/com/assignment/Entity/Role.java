@@ -25,8 +25,8 @@ public class Role implements Serializable{
 	String name;
 	boolean isdelete;
 	String code;
-	@OneToMany(mappedBy = "Role")
+	@OneToMany(mappedBy = "role")
 	List<Users> Users;
-	@OneToMany(mappedBy = "Role")
+	@OneToMany(mappedBy = "role")
 	List<RolePermission> rolePermisson;
 }

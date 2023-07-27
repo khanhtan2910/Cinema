@@ -24,7 +24,7 @@ public class Show implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer showid;
 	@ManyToOne
-	@JoinColumn(name = "showid")
+	@JoinColumn(name = "Roomid")
 	Room room;
 	@OneToMany(mappedBy = "show")
 	List<ShowBooking> showBookings;

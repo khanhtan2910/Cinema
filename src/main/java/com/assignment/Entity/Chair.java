@@ -1,15 +1,16 @@
 package com.assignment.Entity;
 
 import java.io.Serializable;
+import java.util.List;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,14 +21,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "Chair")
-@Embeddable
 public class Chair implements Serializable {
-	@EmbeddedId
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer chairid;
 	Integer col;
 	String row;
-	
-	@OneToOne
-	ShowBooking showBooing;
 	Boolean isActive;
 	@ManyToOne
 	@JoinColumn(name = "Chairtypeid")
@@ -35,4 +34,7 @@ public class Chair implements Serializable {
 	@ManyToOne
 	@JoinColumn(name  ="Roomid")
 	Room room;
+	@OneToMany(mappedBy ="chair")
+	List<ShowBooking> showBookings;
+	
 }
