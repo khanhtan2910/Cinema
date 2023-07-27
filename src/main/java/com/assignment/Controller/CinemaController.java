@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CinemaController {
 	@RequestMapping("/Cinema")
 	public String Cinema() {
-		return "cinema/index";
+		return "cinema/ShowtimeMovie";
 	}
 }

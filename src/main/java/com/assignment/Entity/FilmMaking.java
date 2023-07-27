@@ -26,7 +26,6 @@ public class FilmMaking implements Serializable{
 	@ManyToOne
 	@JoinColumn(name  ="Movieid")
 	Movie movie;
-	
 	@ManyToOne
 	@JoinColumn(name  ="Castandcrewid")
 	CastAndCrew castAndCrew;
