@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TopphimController {
-	@RequestMapping("/TopPhim")
+public class TopfilmController {
+	@RequestMapping("/Topfilm")
 	public String hello() {
-		return "TopPhim/TopFilm";
+		return "Topfilm/footer";
 	}
 }
