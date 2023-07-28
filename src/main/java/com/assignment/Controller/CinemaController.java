@@ -4,16 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CinemaController {
-	@RequestMapping("/Cinema")
+	@RequestMapping("/cinema")
 	public String Cinema() {
-		return "cinema/ShowtimeMovie";
+		return "cinema/cinema";
 	}
-	@RequestMapping("/Cinemama")
+	@RequestMapping("/detailCinema")
 	public String Cinemama() {
-		return "cinema/Cinemama";
+		return "cinema/detailCinema";
 	}
-	@RequestMapping("/Cinemamaa")
-	public String Cinemamaa() {
-		return "cinema/Cinema";
-	}
+	
 }

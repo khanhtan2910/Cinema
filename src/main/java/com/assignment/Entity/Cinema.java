@@ -3,7 +3,7 @@ package com.assignment.Entity;
 import java.io.Serializable;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,5 +29,6 @@ public class Cinema implements Serializable{
 	double longitude;
 	double latitude;
 	@OneToMany(mappedBy = "cinema")
+	@JsonIgnore
 	List<Room> rooms;
 }

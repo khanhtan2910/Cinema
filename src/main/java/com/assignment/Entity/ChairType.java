@@ -3,6 +3,8 @@ package com.assignment.Entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,5 +27,6 @@ public class ChairType implements Serializable{
 	String color;
 	String name;
 	@OneToMany(mappedBy = "chairType")
+	@JsonIgnore
 	List<Chair> Chairs;
 }

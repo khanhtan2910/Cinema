@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,6 +36,7 @@ public class Users implements Serializable{
 	Integer phone;
 	Boolean isadmin;
 	@OneToMany(mappedBy="Users")
+	@JsonIgnore
 	List<Booking> Booking;
 	@ManyToOne
 	@JoinColumn(name = "Roleid")

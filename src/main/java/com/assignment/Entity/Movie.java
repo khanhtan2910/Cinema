@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -46,9 +48,12 @@ public class Movie implements Serializable {
 	boolean has3d;
 	Integer filmlength;
 	@OneToMany(mappedBy = "movie")
+	@JsonIgnore
 	List<Show> shows;
 	@OneToMany(mappedBy = "movie")
+	@JsonIgnore
 	List<FilmMaking> filmMakings;
 	@OneToMany(mappedBy = "movie")
+	@JsonIgnore
 	List<MovieType> movieTypes;
 }

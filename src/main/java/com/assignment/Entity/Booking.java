@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,8 +43,10 @@ public class Booking implements Serializable{
 	Date updateAt = new Date();
 	String code;
 	@OneToMany(mappedBy = "Booking")
+	@JsonIgnore
 	List<ShowBooking> showBookings;
 	@OneToMany(mappedBy = "Booking")
+	@JsonIgnore
 	List<Payment> payments;
 	
 }

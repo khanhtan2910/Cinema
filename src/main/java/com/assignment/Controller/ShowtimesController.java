@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ShowtimesController {
 	@RequestMapping("/Showtime")
 	public String showTime() {
-		return "showTimes/index";
+		return "showTimes/showtimeMovie";
 	}
 	
 }
