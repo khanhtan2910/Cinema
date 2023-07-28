@@ -7,6 +7,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.assignment.interceptor.GlobalInterceptor;
 
+
+
+
+
+
 @Configuration
 public class InterceptorConfig  implements WebMvcConfigurer{
 	@Autowired
