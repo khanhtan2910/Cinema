@@ -8,4 +8,12 @@ public class CinemaController {
 	public String Cinema() {
 		return "cinema/ShowtimeMovie";
 	}
+	@RequestMapping("/Cinemama")
+	public String Cinemama() {
+		return "cinema/Cinemama";
+	}
+	@RequestMapping("/Cinemamaa")
+	public String Cinemamaa() {
+		return "cinema/Cinema";
+	}
 }
