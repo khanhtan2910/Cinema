@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MaMaCinema {
 	@RequestMapping("/mamaCinema")
 	public String Cinema() {
-		return "showTimes/index";
+		return "showTimes/ShowtimeMovie";
 	}
 }

@@ -1,660 +1,779 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LichChieu</title>
-    <link rel="stylesheet" href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="ShowtimeMovie/css/style.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="ShowtimeMovie/csss/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="ShowtimeMovie/csss/font-awesome.css">
-    <link rel="stylesheet" href="ShowtimeMovie/csss/templatemo-hexashop.css">
-    <link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LichChieu</title>
+<link rel="stylesheet"
+	href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
+<link rel="stylesheet" href="ShowtimeMovie/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/magnific-popup.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/style.css"
+	type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/font-awesome.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/templatemo-hexashop.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
 
-    <link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+<link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <div class="breadcrumb__links">
-                            <a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-                            <a href="./index.html">Phim đang chiếu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="breadcrumb-optionn">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <div class="row">
-                            <div class="col-lg-6 col-6">
-                                <h2><strong>Lịch chiếu phim tháng 7/2023 trên Mama</strong></h2>
-                                <h6><i class="bi bi-check-all"></i>Lịch phim đang chiếu luôn <strong>được cập nhật mới
-                                        nhất</strong></h6>
-                                <h6><i class="bi bi-check-all"></i><strong>Suất phim đang chiếu dầy đủ </strong>các rạp
-                                </h6>
-                                <h6><i class="bi bi-check-all"></i>Đặt phim đang chiếu <strong>siêu nhanh</strong></h6>
-                                <h6><i class="bi bi-check-all"></i> <strong>Đặt vé lịch phim đang chiếu</strong> yêu
-                                    thích mọi nơi</h6>
-                            </div>
-                            <div class="col-lg-6 col-6">
-                                <img src="ShowtimeMovie/img/momo.jpg" alt="">
-                            </div>
-                        </div>
+	<main>
+		<script>
+			function setBgColor(index) {
+				for (let count = 1; count < 8; count++) {
+					document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
+					document.getElementById("ngaychieu" + count).style.color = "black";
+					document.getElementById("ngauchieuduoi" + count).style.color = "black";
+					document.getElementById("ngaychieungoai" + count).style.borderColor = "black";
+				}
+				document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
+				document.getElementById("ngaychieu" + index).style.color = "white";
+				document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
+				document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="shop-details">
-            <div class="product__details__pic">
-                <h2 style="color: rgb(233, 64, 148);" class="mb-3"><strong>Tìm rạp chiếu phim Mama</strong></h2>
-                <div class="col-lg-12 row">
-                    <div class="col-lg-2"></div>
-                    <div class="card col-lg-8" style="height: 90%;">
-                        <div class=" p-2 row">
-                            <h4 class="p-1" style="width: 110px;">Vị trí</h4>
-                            <button type="button" class="btn btn-outline-danger mr-2" style="width: 150px;height: 40px;"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-geo-alt"></i> Hồ
-                                Chí
-                                Minh</button>
-                            <button type="button" class="btn btn-outline-danger" style="width: 150px;height: 40px;"><i
-                                    class="bi bi-cursor"></i> Gần
-                                Bạn</button>
-                        </div>
-                        <div class="row p-2 ml-2">
-                            <button type="button" class="btn btn-outline-light border" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
-                            <button type="button" class="btn btn-outline-light border ml-2" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
-                            <button type="button" class="btn btn-outline-light border ml-2" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
-                            <button type="button" class="btn btn-outline-light border ml-2" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
-                            <button type="button" class="btn btn-outline-light border ml-2" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
-                            <button type="button" class="btn btn-outline-light border ml-2" style="width: 50px;"><a
-                                    href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-                                        style="height: 100%;width: 100%;"></a></button>
+			}
+		</script>
+		<section class="breadcrumb-option">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb__text">
+							<div class="breadcrumb__links">
+								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
+								<a href="./index.html">Phim đang chiếu</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="breadcrumb-optionn">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb__text">
+							<div class="row">
+								<div class="col-lg-6 col-6">
+									<h2>
+										<strong>Lịch chiếu phim tháng 7/2023 trên Mama</strong>
+									</h2>
+									<h6>
+										<i class="bi bi-check-all"></i>Lịch phim đang chiếu luôn <strong>được
+											cập nhật mới nhất</strong>
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i><strong>Suất phim đang
+											chiếu dầy đủ </strong>các rạp
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i>Đặt phim đang chiếu <strong>siêu
+											nhanh</strong>
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i> <strong>Đặt vé lịch
+											phim đang chiếu</strong> yêu thích mọi nơi
+									</h6>
+								</div>
+								<div class="col-lg-6 col-6">
+									<img src="ShowtimeMovie/img/momo.jpg" alt="">
+								</div>
+							</div>
 
-                        </div>
-                        <div class="col-lg-12 row" style="text-align: left;">
-                            <div class="col-lg-4 border-top border-end shop__sidebar__search ">
-                                <form action="#" class="mt-1">
-                                    <input type="text" placeholder="Search...">
-                                    <button type="submit"><span class="icon_search"></span></button>
-                                </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="shop-details">
+				<div class="product__details__pic">
+					<h2 style="color: rgb(233, 64, 148);" class="mb-3">
+						<strong>Tìm rạp chiếu phim Mama</strong>
+					</h2>
+					<div class="col-lg-12 row">
+						<div class="col-lg-2"></div>
+						<div class="card col-lg-8" style="height: 90%;">
+							<div class=" p-2 row">
+								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
+								<button type="button" class="btn btn-outline-danger mr-2"
+									style="width: 150px; height: 40px;" data-bs-toggle="modal"
+									data-bs-target="#exampleModal">
+									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
+								</button>
+								<button type="button" class="btn btn-outline-danger"
+									style="width: 150px; height: 40px;">
+									<i class="bi bi-cursor"></i> Gần Bạn
+								</button>
+							</div>
+							<div class="row p-2 ml-2">
+								<button type="button" class="btn btn-outline-light border"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
+								<button type="button" class="btn btn-outline-light border ml-2"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
+								<button type="button" class="btn btn-outline-light border ml-2"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
+								<button type="button" class="btn btn-outline-light border ml-2"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
+								<button type="button" class="btn btn-outline-light border ml-2"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
+								<button type="button" class="btn btn-outline-light border ml-2"
+									style="width: 50px;">
+									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
+										style="height: 100%; width: 100%;"></a>
+								</button>
 
-                                <div class="list-group mt-2 ">
+							</div>
+							<div class="col-lg-12 row" style="text-align: left;">
+								<div
+									class="col-lg-4 border-top border-end shop__sidebar__search ">
+									<form action="#" class="mt-1">
+										<input type="text" placeholder="Search...">
+										<button type="submit">
+											<span class="icon_search"></span>
+										</button>
+									</form>
 
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <div class="row col-lg-12">
-                                            <div class="col-lg-3 ">
-                                                <a href="#"><img class="img-thumbnail"
-                                                        src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                        style="height: 100%;width: 100%;"></a>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <h6 class="mt-3">Beta Quang Trung </h6>
-                                            </div>
-                                            <div class="col-lg-2 mt-3 " style="text-align: right;">
-                                                <i class="bi bi-chevron-double-right" style="margin-left: 60px;"></i>
-                                            </div>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 border-top">
-                                <div class=" col-lg-12 row mt-2">
-                                    <div class="col-lg-1 ">
-                                        <a href="#"><img class="img-thumbnail" src="ShowtimeMovie/img/logoQT.png" alt=""
-                                                style="height: 60%;width: 100%;"></a>
-                                    </div>
-                                    <div class="col-lg-11">
-                                        <a href="#" style="color: black;">Lịch chiếu phim</a>
-                                        <p>tầng 5 tòa nhà gì đó</p>
-                                    </div>
-                                </div>
-                                <div class="row mt-1 ml-2">
-                                    <button id="ngaychieungoai1" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(1)">
-                                        <div id="ngaychieu1" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi1" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai2" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(2)">
-                                        <div id="ngaychieu2" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi2" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai3" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(3)">
-                                        <div id="ngaychieu3" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi3" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai4" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(4)">
-                                        <div id="ngaychieu4" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi4" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai5" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(5)">
-                                        <div id="ngaychieu5" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi5" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai6" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(6)">
-                                        <div id="ngaychieu6" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi6" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
-                                    <button id="ngaychieungoai7" type="button" class=" mr-2 card text-center p-0 "
-                                        style="width: 10%;" onclick="setBgColor(7)">
-                                        <div id="ngaychieu7" class="card-header text-center p-1 w-100 "
-                                            style="font-size: larger;background-color: rgb(236, 234, 234);">21</div>
-                                        <div id="ngauchieuduoi7" class="card-footer text-center p-2 w-100 bg-white"
-                                            style="font-size:  small;">Hôm nay</div>
-                                    </button>
+									<div class="list-group mt-2 ">
 
-                                </div>
-                                <div class="card-body border-top mt-1 p-0 scrollbar">
-                                    <div class="shop__sidebar__categories">
-                                        <ul class="">
-                                            <div class="card-body col-lg-12 row">
-                                                <div class="col-lg-3">
-                                                    <img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg" alt=""
-                                                        style="width: 100%;height: 100%;">
-                                                </div>
-                                                <div class="col-lg-9 down-content">
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+										<button type="button"
+											class="list-group-item list-group-item-action">
+											<div class="row col-lg-12">
+												<div class="col-lg-3 ">
+													<a href="#"><img class="img-thumbnail"
+														src="ShowtimeMovie/img/logoQT.png" alt=""
+														style="height: 100%; width: 100%;"></a>
+												</div>
+												<div class="col-lg-7">
+													<h6 class="mt-3">Beta Quang Trung</h6>
+												</div>
+												<div class="col-lg-2 mt-3 " style="text-align: right;">
+													<i class="bi bi-chevron-double-right"
+														style="margin-left: 60px;"></i>
+												</div>
+											</div>
+										</button>
+									</div>
+								</div>
+								<div class="col-lg-8 border-top">
+									<div class=" col-lg-12 row mt-2">
+										<div class="col-lg-1 ">
+											<a href="#"><img class="img-thumbnail"
+												src="ShowtimeMovie/img/logoQT.png" alt=""
+												style="height: 60%; width: 100%;"></a>
+										</div>
+										<div class="col-lg-11">
+											<a href="#" style="color: black;">Lịch chiếu phim</a>
+											<p>tầng 5 tòa nhà gì đó</p>
+										</div>
+									</div>
+									<div class="row mt-1 ml-2">
+										<button id="ngaychieungoai1" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(1)">
+											<div id="ngaychieu1"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi1"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai2" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(2)">
+											<div id="ngaychieu2"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi2"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai3" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(3)">
+											<div id="ngaychieu3"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi3"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai4" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(4)">
+											<div id="ngaychieu4"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi4"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai5" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(5)">
+											<div id="ngaychieu5"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi5"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai6" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(6)">
+											<div id="ngaychieu6"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi6"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
+										<button id="ngaychieungoai7" type="button"
+											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											onclick="setBgColor(7)">
+											<div id="ngaychieu7"
+												class="card-header text-center p-1 w-100 "
+												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+											<div id="ngauchieuduoi7"
+												class="card-footer text-center p-2 w-100 bg-white"
+												style="font-size: small;">Hôm nay</div>
+										</button>
 
-                                                    <h6><strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong></h6>
-                                                    <span>Phiêu lưu,Gây Cấn Hành Động</span>
-                                                    <h6 class="mt-3"><strong>2D Phụ Đề</strong></h6>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                </div>
+									</div>
+									<div class="card-body border-top mt-1 p-0 scrollbar">
+										<div class="shop__sidebar__categories">
+											<ul class="">
+												<div class="card-body col-lg-12 row">
+													<div class="col-lg-3">
+														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+															alt="" style="width: 100%; height: 100%;">
+													</div>
+													<div class="col-lg-9 down-content">
 
-                                            </div>
-                                            <hr>
-                                            <div class="card-body col-lg-12 row">
-                                                <div class="col-lg-3">
-                                                    <img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg" alt=""
-                                                        style="width: 100%;height: 100%;">
-                                                </div>
-                                                <div class="col-lg-9 down-content">
+														<h6>
+															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+														</h6>
+														<span>Phiêu lưu,Gây Cấn Hành Động</span>
+														<h6 class="mt-3">
+															<strong>2D Phụ Đề</strong>
+														</h6>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+													</div>
 
-                                                    <h6><strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong></h6>
-                                                    <span>Phiêu lưu,Gây Cấn Hành Động</span>
-                                                    <h6 class="mt-3"><strong>2D Phụ Đề</strong></h6>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                </div>
+												</div>
+												<hr>
+												<div class="card-body col-lg-12 row">
+													<div class="col-lg-3">
+														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+															alt="" style="width: 100%; height: 100%;">
+													</div>
+													<div class="col-lg-9 down-content">
 
-                                            </div>
-                                            <hr>
-                                            <div class="card-body col-lg-12 row">
-                                                <div class="col-lg-3">
-                                                    <img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg" alt=""
-                                                        style="width: 100%;height: 100%;">
-                                                </div>
-                                                <div class="col-lg-9 down-content">
+														<h6>
+															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+														</h6>
+														<span>Phiêu lưu,Gây Cấn Hành Động</span>
+														<h6 class="mt-3">
+															<strong>2D Phụ Đề</strong>
+														</h6>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+													</div>
 
-                                                    <h6><strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong></h6>
-                                                    <span>Phiêu lưu,Gây Cấn Hành Động</span>
-                                                    <h6 class="mt-3"><strong>2D Phụ Đề</strong></h6>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                    <button type="button" class="btn btn-outline-info mr-2 mt-1"
-                                                        style="width: 150px;"><strong>23:20</strong>~02:05</button>
-                                                </div>
+												</div>
+												<hr>
+												<div class="card-body col-lg-12 row">
+													<div class="col-lg-3">
+														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+															alt="" style="width: 100%; height: 100%;">
+													</div>
+													<div class="col-lg-9 down-content">
 
-                                            </div>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+														<h6>
+															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+														</h6>
+														<span>Phiêu lưu,Gây Cấn Hành Động</span>
+														<h6 class="mt-3">
+															<strong>2D Phụ Đề</strong>
+														</h6>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+														<button type="button"
+															class="btn btn-outline-info mr-2 mt-1"
+															style="width: 150px;">
+															<strong>23:20</strong>~02:05
+														</button>
+													</div>
 
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <section class="section" id="men">
-        <div class="section-heading">
-            <h2>Phim đang chiếu</h2>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg" alt=""
-                                            style="width: 300px;height: 400px;">
-                                    </a>
-                                    <span class="btnn"><i class="bi bi-play-circle"></i></span>
-                                </div>
-                                <div class="down-content">
-                                    <h4>Dinh thự ma ám</h4>
-                                    <span>$120.00</span>
+												</div>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                                </div>
-                            </div>
-                            <div class="item ">
-                                <div class="thumb ">
-                                    <a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg" alt=""
-                                            style="width: 300px;height: 400px;">
-                                    </a>
-                                    <span class="btnn"><i class="bi bi-play-circle"></i></span>
-                                </div>
-                                <div class="down-content">
-                                    <h4>Dinh thự ma ám</h4>
-                                    <span>$120.00</span>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<section class="section" id="men">
+			<div class="section-heading">
+				<h2>Phim đang chiếu</h2>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="">
+						<div class="men-item-carousel">
+							<div class="owl-men-item owl-carousel">
+								<div class="item">
+									<div class="thumb">
+										<a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg"
+											alt="" style="width: 300px; height: 400px;">
+										</a> <span class="btnn"><i class="bi bi-play-circle"></i></span>
+									</div>
+									<div class="down-content">
+										<h4>Dinh thự ma ám</h4>
+										<span>$120.00</span>
 
-                                </div>
-                            </div>
-                            <div class="item ">
-                                <div class="thumb zoom ">
-                                    <a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg" alt=""
-                                            style="width: 300px;height: 400px;">
-                                    </a>
-                                    <span class="btnn"><i class="bi bi-play-circle"></i></span>
-                                </div>
-                                <div class="down-content">
-                                    <h4>Dinh thự ma ám</h4>
-                                    <span>$120.00</span>
+									</div>
+								</div>
+								<div class="item ">
+									<div class="thumb ">
+										<a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg"
+											alt="" style="width: 300px; height: 400px;">
+										</a> <span class="btnn"><i class="bi bi-play-circle"></i></span>
+									</div>
+									<div class="down-content">
+										<h4>Dinh thự ma ám</h4>
+										<span>$120.00</span>
 
-                                </div>
-                            </div>
-                            <div class="item ">
-                                <div class="thumb zoom ">
-                                    <a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg" alt=""
-                                            style="width: 300px;height: 400px;">
-                                    </a>
-                                    <span class="btnn"><i class="bi bi-play-circle"></i></span>
-                                </div>
-                                <div class="down-content">
-                                    <h4>Dinh thự ma ám</h4>
-                                    <span>$120.00</span>
+									</div>
+								</div>
+								<div class="item ">
+									<div class="thumb zoom ">
+										<a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg"
+											alt="" style="width: 300px; height: 400px;">
+										</a> <span class="btnn"><i class="bi bi-play-circle"></i></span>
+									</div>
+									<div class="down-content">
+										<h4>Dinh thự ma ám</h4>
+										<span>$120.00</span>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="col-lg-12 row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 row ">
-                <div class="col-lg-5">
-                    <h1 style="color: rgb(247, 96, 201);">Bạn hỏi , Ví MaMa trả lời </h1>
-                </div>
-                <div class="accordion accordion-flush col-lg-4 " id="accordionFlushExample">
-                    <div class="accordion-item" style="width: 200%;">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                                Có thể mua vé xem phim trên những rạp nào trên Mama?
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Hiện tại bạn có thể đặt vé tại <strong><a href=""
-                                        style="color: rgb(226, 86, 173);">rạp phim</a></strong> cũng như xem
-                                <strong><a href="" style="color: rgb(226, 86, 173);">lịch chiếu phim</a></strong>
-                                các rạp sau: CGV Cinemas, Lotte Cinema, Galaxy Cinema, BHD Star, Mega GS,
-                                Dcine, Cinestar. <strong><a href="" style="color: rgb(226, 86, 173);">Đặt vé xem
-                                        phim ngay</a></strong>.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item" style="width: 200%;">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                                Lợi ích của việc mua vé xem phim trên Mama?
-                            </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Nhanh chóng, trực quan không cần ra mua vé trực tiếp tại
-                                rạp. Tiết kiệm thời gian và tiện lợi. Có nhiều chương trình khuyến mãi với giá vé vô
-                                cùng hấp dẫn. <strong><a href="" style="color: rgb(226, 86, 173);">Mua vé xem phim
-                                        ngay</a></strong>.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item" style="width: 200%;">
-                        <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                                Có thể mua vé xem phim kèm bắp nước hay không?
-                            </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Hiện tại Ví MoMo có hỗ trợ mua bắp nước các cụm rạp CGV
-                                Cinemas, Lotte Cinema, BHD Star, Dcine ngay khi đặt vé. Nếu bạn muốn tăng size, đổi
-                                mùi vị bắp nước chỉ cần đến quầy và trả thêm tiền cho thu ngân. Bắp nước đã mua
-                                không hỗ trợ đổi trả.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item" style="width: 200%;">
-                        <h2 class="accordion-header" id="flush-headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                aria-controls="flush-collapseFour">
-                                Mua vé xem phim tại Mama có đắt hơn mua trực tiếp tại rạp không?
-                            </button>
-                        </h2>
-                        <div id="flush-collapseFour" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Giá vé xem phim trên Ví MoMo không thu thêm phí dịch vụ và
-                                bán bằng giá tại rạp, nhưng luôn có CTKM vào các ngày trong tuần và cuối tuần để
-                                MoMo-er có thể mua với giá vé luôn tốt hơn khi mua trực tiếp tại rạp.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item" style="width: 200%;">
-                        <h2 class="accordion-header" id="flush-headingFire">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFire" aria-expanded="false"
-                                aria-controls="flush-collapseFire">
-                                Vé xem phim có được đổi trả,hoàn hủy không?
-                            </button>
-                        </h2>
-                        <div id="flush-collapseFire" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingFire" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Các vé xem phim khi tra cứu <strong><a href=""
-                                        style="color: rgb(226, 86, 173);">lich chiếu phim</a></strong> tại Ví MoMo
-                                hiện
-                                tại không hỗ trợ đổi trả hay hoàn hủy vé.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </section>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header mt-3">
-                    <h2 class="modal-title" id="exampleModalLabel">Chọn địa điểm</h2>
-                    <div class="shop__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
-                            <button type="submit"><span class="icon_search"></span></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-body row ml-2">
-                    <div class="card m-1" style="width: 180px;height: 50px;text-align: center;">
-                        <a href="" style="color: black;margin-top: 10px;">Tp.HCM</a>
-                    </div>
-                    <div class="card m-1" style="width: 180px;height: 50px;text-align: center;">
-                        <a href="" style="color: black;margin-top: 10px;">Hà Nội</a>
-                    </div>
-                    <div class="card m-1" style="width: 180px;height: 50px;text-align: center;">
-                        <a href="" style="color: black;margin-top: 10px;">Tp.HCM</a>
-                    </div>
-                    <div class="card m-1" style="width: 180px;height: 50px;text-align: center;">
-                        <a href="" style="color: black;margin-top: 10px;">Tp.HCM</a>
-                    </div>
+									</div>
+								</div>
+								<div class="item ">
+									<div class="thumb zoom ">
+										<a href="#"> <img src="ShowtimeMovie/imagess/men-01.jpg"
+											alt="" style="width: 300px; height: 400px;">
+										</a> <span class="btnn"><i class="bi bi-play-circle"></i></span>
+									</div>
+									<div class="down-content">
+										<h4>Dinh thự ma ám</h4>
+										<span>$120.00</span>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="col-lg-12 row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 row ">
+					<div class="col-lg-5">
+						<h1 style="color: rgb(247, 96, 201);">Bạn hỏi , Ví MaMa trả
+							lời</h1>
+					</div>
+					<div class="accordion accordion-flush col-lg-4 "
+						id="accordionFlushExample">
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingOne">
+								<button class="accordion-button collapsed"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									Có thể mua vé xem phim trên những rạp nào trên Mama?</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Hiện tại bạn có thể đặt vé tại <strong><a href=""
+										style="color: rgb(226, 86, 173);">rạp phim</a></strong> cũng như xem <strong><a
+										href="" style="color: rgb(226, 86, 173);">lịch chiếu phim</a></strong>
+									các rạp sau: CGV Cinemas, Lotte Cinema, Galaxy Cinema, BHD
+									Star, Mega GS, Dcine, Cinestar. <strong><a href=""
+										style="color: rgb(226, 86, 173);">Đặt vé xem phim ngay</a></strong>.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingTwo">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+									aria-expanded="false" aria-controls="flush-collapseTwo">
+									Lợi ích của việc mua vé xem phim trên Mama?</button>
+							</h2>
+							<div id="flush-collapseTwo" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingTwo"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Nhanh chóng, trực quan không cần ra mua vé trực tiếp tại rạp.
+									Tiết kiệm thời gian và tiện lợi. Có nhiều chương trình khuyến
+									mãi với giá vé vô cùng hấp dẫn. <strong><a href=""
+										style="color: rgb(226, 86, 173);">Mua vé xem phim ngay</a></strong>.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingThree">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+									aria-expanded="false" aria-controls="flush-collapseThree">
+									Có thể mua vé xem phim kèm bắp nước hay không?</button>
+							</h2>
+							<div id="flush-collapseThree" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingThree"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">Hiện tại Ví MoMo có hỗ trợ mua
+									bắp nước các cụm rạp CGV Cinemas, Lotte Cinema, BHD Star, Dcine
+									ngay khi đặt vé. Nếu bạn muốn tăng size, đổi mùi vị bắp nước
+									chỉ cần đến quầy và trả thêm tiền cho thu ngân. Bắp nước đã mua
+									không hỗ trợ đổi trả.</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingFour">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
+									aria-expanded="false" aria-controls="flush-collapseFour">
+									Mua vé xem phim tại Mama có đắt hơn mua trực tiếp tại rạp
+									không?</button>
+							</h2>
+							<div id="flush-collapseFour" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingFour"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">Giá vé xem phim trên Ví MoMo
+									không thu thêm phí dịch vụ và bán bằng giá tại rạp, nhưng luôn
+									có CTKM vào các ngày trong tuần và cuối tuần để MoMo-er có thể
+									mua với giá vé luôn tốt hơn khi mua trực tiếp tại rạp.</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingFire">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseFire"
+									aria-expanded="false" aria-controls="flush-collapseFire">
+									Vé xem phim có được đổi trả,hoàn hủy không?</button>
+							</h2>
+							<div id="flush-collapseFire" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingFire"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Các vé xem phim khi tra cứu <strong><a href=""
+										style="color: rgb(226, 86, 173);">lich chiếu phim</a></strong> tại Ví
+									MoMo hiện tại không hỗ trợ đổi trả hay hoàn hủy vé.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+		</section>
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable modal-lg">
+				<div class="modal-content">
+					<div class="modal-header mt-3">
+						<h2 class="modal-title" id="exampleModalLabel">Chọn địa điểm</h2>
+						<div class="shop__sidebar__search">
+							<form action="#">
+								<input type="text" placeholder="Search...">
+								<button type="submit">
+									<span class="icon_search"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+					<div class="modal-body row ml-2">
+						<div class="card m-1"
+							style="width: 180px; height: 50px; text-align: center;">
+							<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
+						</div>
+						<div class="card m-1"
+							style="width: 180px; height: 50px; text-align: center;">
+							<a href="" style="color: black; margin-top: 10px;">Hà Nội</a>
+						</div>
+						<div class="card m-1"
+							style="width: 180px; height: 50px; text-align: center;">
+							<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
+						</div>
+						<div class="card m-1"
+							style="width: 180px; height: 50px; text-align: center;">
+							<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
+						</div>
 
-
-
-
-
-    <script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
-    <script src="ShowtimeMovie/js/bootstrap.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.nice-select.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.nicescroll.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.magnific-popup.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.countdown.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.slicknav.js"></script>
-    <script src="ShowtimeMovie/js/mixitup.min.js"></script>
-    <script src="ShowtimeMovie/js/owl.carousel.min.js"></script>
-    <script src="ShowtimeMovie/js/main.js"></script>
-    <script src="ShowtimeMovie/js/jquery-2.1.0.min.js"></script>
-    <script src="ShowtimeMovie/js/bootstrap.bundle.min.js"></script>
-    <script src="ShowtimeMovie/js/angular-route.min.js"></script>
-    <script src="ShowtimeMovie/js/angular.min.js"></script>
-    <script src="ShowtimeMovie/js/jquery.min.js"></script>
-    <script src="ShowtimeMovie/js/popper.min.js"></script>
-    <script src="ShowtimeMovie/js/plugin.js"></script>
-
-    <!-- Bootstrap -->
-    <!-- javascript -->
-    <script src="ShowtimeMovie/js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script src="ShowtimeMovie/jss/owl-carousel.js"></script>
-    <script src="ShowtimeMovie/jss/accordions.js"></script>
-    <script src="ShowtimeMovie/jss/datepicker.js"></script>
-    <script src="ShowtimeMovie/jss/scrollreveal.min.js"></script>
-    <script src="ShowtimeMovie/jss/waypoints.min.js"></script>
-    <script src="ShowtimeMovie/jss/jquery.counterup.min.js"></script>
-    <script src="ShowtimeMovie/jss/imgfix.min.js"></script>
-    <script src="ShowtimeMovie/jss/slick.js"></script>
-    <script src="ShowtimeMovie/jss/lightbox.js"></script>
-    <script src="ShowtimeMovie/jss/isotope.js"></script>
-
-    <!-- Global Init -->
-    <script src="ShowtimeMovie/jss/custom.js"></script>
-    <script>
-        function setBgColor(index) {
-            for (let count = 1; count < 8; count++) {
-                document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
-                document.getElementById("ngaychieu" + count).style.color = "black";
-                document.getElementById("ngauchieuduoi" + count).style.color = "black";
-                document.getElementById("ngaychieungoai" + count).style.borderColor = "black";
-            }
-            document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
-            document.getElementById("ngaychieu" + index).style.color = "white";
-            document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
-            document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</main>
 
 
-        }
-    </script>
-    <style>
-        img:hover {
-            -webkit-transform: scale(1.01);
-        }
 
-        .scrollbar {
-            float: left;
-            height: 400px;
-            width: 100%;
-            overflow-y: scroll;
-            margin-bottom: 25px;
-        }
-        .container .btnn {
-            position: absolute;
-            top: 40%;
-            left: 40%;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            color: white;
-            font-size: 50px;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
+
+
+	<script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
+	<script src="ShowtimeMovie/js/bootstrap.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.nice-select.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.nicescroll.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.magnific-popup.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.countdown.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.slicknav.js"></script>
+	<script src="ShowtimeMovie/js/mixitup.min.js"></script>
+	<script src="ShowtimeMovie/js/owl.carousel.min.js"></script>
+	<script src="ShowtimeMovie/js/main.js"></script>
+	<script src="ShowtimeMovie/js/jquery-2.1.0.min.js"></script>
+	<script src="ShowtimeMovie/js/bootstrap.bundle.min.js"></script>
+	<script src="ShowtimeMovie/js/angular-route.min.js"></script>
+	<script src="ShowtimeMovie/js/angular.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.min.js"></script>
+	<script src="ShowtimeMovie/js/popper.min.js"></script>
+	<script src="ShowtimeMovie/js/plugin.js"></script>
+
+	<!-- Bootstrap -->
+	<!-- javascript -->
+	<script src="ShowtimeMovie/js/owl.carousel.js"></script>
+	<script
+		src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<script src="ShowtimeMovie/jss/owl-carousel.js"></script>
+	<script src="ShowtimeMovie/jss/accordions.js"></script>
+	<script src="ShowtimeMovie/jss/datepicker.js"></script>
+	<script src="ShowtimeMovie/jss/scrollreveal.min.js"></script>
+	<script src="ShowtimeMovie/jss/waypoints.min.js"></script>
+	<script src="ShowtimeMovie/jss/jquery.counterup.min.js"></script>
+	<script src="ShowtimeMovie/jss/imgfix.min.js"></script>
+	<script src="ShowtimeMovie/jss/slick.js"></script>
+	<script src="ShowtimeMovie/jss/lightbox.js"></script>
+	<script src="ShowtimeMovie/jss/isotope.js"></script>
+
+	<!-- Global Init -->
+	<script src="ShowtimeMovie/jss/custom.js"></script>
+
+
 </body>
 
 </html>

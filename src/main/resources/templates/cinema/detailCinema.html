@@ -32,13 +32,27 @@
 <link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
 
 <link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
-<style>
 
-</style>
+
 </head>
 
 <body>
 	<main>
+		<script>
+			function setBgColor(index) {
+				for (let count = 1; count < 8; count++) {
+					document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
+					document.getElementById("ngaychieu" + count).style.color = "black";
+					document.getElementById("ngauchieuduoi" + count).style.color = "black";
+					document.getElementById("ngaychieungoai" + count).style.borderColor = "black";
+				}
+				document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
+				document.getElementById("ngaychieu" + index).style.color = "white";
+				document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
+				document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
+
+			}
+		</script>
 		<section class="breadcrumb-option">
 			<div class="container">
 				<div class="row">
@@ -297,14 +311,14 @@
 									</div>
 									<div class="row mt-1 ml-2">
 										<button id="ngaychieungoai1" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width: 10%;border-color: #FF0099;"
 											onclick="setBgColor(1)">
 											<div id="ngaychieu1"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: #FF0099;color: white;">21</div>
 											<div id="ngauchieuduoi1"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small; color: #FF0099;">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai2" type="button"
 											class=" mr-2 card text-center p-0 " style="width: 10%;"
@@ -701,21 +715,6 @@
 	<script src="ShowtimeMovie/jss/slick.js"></script>
 	<script src="ShowtimeMovie/jss/lightbox.js"></script>
 	<script src="ShowtimeMovie/jss/isotope.js"></script>
-	<script>
-		function setBgColor(index) {
-			for (let count = 1; count < 8; count++) {
-				document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
-				document.getElementById("ngaychieu" + count).style.color = "black";
-				document.getElementById("ngauchieuduoi" + count).style.color = "black";
-				document.getElementById("ngaychieungoai" + count).style.borderColor = "black";
-			}
-			document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
-			document.getElementById("ngaychieu" + index).style.color = "white";
-			document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
-			document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
-
-		}
-	</script>
 
 
 </body>
