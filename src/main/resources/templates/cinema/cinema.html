@@ -68,10 +68,11 @@
         			$http.get(url).then(resp => {
 						var items = [];
             		 	items = resp.data;
-						var Address = "TP Hồ Chí Minh";
+						var Address = "Hồ Chí Minh";
 						 if(address!=''){
 							 Address  = address;
 						 }
+						document.getElementById("showAddress").innerHTML = Address;
 						for(let i of items){
 							if(i.address.includes(Address)){
 								$scope.cinemas.push(i);
@@ -147,7 +148,7 @@
 						<div class="card col-lg-6">
 							<div class=" p-2 row">
 								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
-								<button type="button" class="btn btn-outline-danger mr-2"
+								<button type="button" class="btn btn-outline-danger mr-2 " id = "showAddress"
 									style="width: 150px; height: 40px;" data-bs-toggle="modal"
 									data-bs-target="#exampleModal">
 									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
