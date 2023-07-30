@@ -16,4 +16,10 @@ public interface CinemaService {
 
 	void deleteById(Integer cinemaId);
 
+	List<Cinema> findByAdressAndSearch(String keyword, String address);
+
+	List<Cinema> findByAddress(String address);
+
+	
+
 }

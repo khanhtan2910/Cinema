@@ -8,6 +8,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.assignment.Service.CategoryService;
+import com.assignment.Service.CinemaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,10 +16,13 @@ import jakarta.servlet.http.HttpServletResponse;
 public class GlobalInterceptor implements HandlerInterceptor{
 	@Autowired
 	CategoryService categoryService;
+	@Autowired
+	CinemaService cinemaService;
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
 //		request.setAttribute("category", categoryService.findAll());
+//		request.setAttribute("cinemas", cinemaService.findAll());
 	}
 }

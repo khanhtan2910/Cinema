@@ -17,7 +17,7 @@ import com.assignment.Entity.Cinema;
 import com.assignment.Service.CinemaService;
 
 import ch.qos.logback.core.model.Model;
-@CrossOrigin("*")
+
 @RestController
 public class CinemaRestController {
 	@Autowired
@@ -33,6 +33,10 @@ public class CinemaRestController {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(cinemaService.findById(cinemaId));
+	}
+	@GetMapping("/rest/cinemas/address")
+	public ResponseEntity<List<Cinema>> getAny(@RequestBody String address) {		
+		return ResponseEntity.ok(cinemaService.findByAddress(address));
 	}
 	@PostMapping("/rest/cinemas")
 	public ResponseEntity<Cinema> post(@RequestBody Cinema cinema){

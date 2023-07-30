@@ -43,4 +43,18 @@ public class CinemaServiceImpl implements CinemaService{
 		// TODO Auto-generated method stub
 		cinemaDAO.deleteById(cinemaId);
 	}
+
+	@Override
+	public List<Cinema> findByAdressAndSearch(String address, String keyword) {
+		// TODO Auto-generated method stub
+		return cinemaDAO.findByAdressAndSearch(keyword, address);
+	}
+
+	@Override
+	public List<Cinema> findByAddress(String address) {
+		// TODO Auto-generated method stub
+		return cinemaDAO.findByAddress(address);
+	}
+
+	
 }

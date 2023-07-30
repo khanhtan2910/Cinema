@@ -37,7 +37,7 @@
 </head>
 
 <body>
-	<main>
+	<main th:object="${cinema}">
 		<script>
 			function setBgColor(index) {
 				for (let count = 1; count < 8; count++) {
@@ -60,7 +60,7 @@
 						<div class="breadcrumb__text">
 							<div class="breadcrumb__links">
 								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-								<a href="./index.html">Rạp phim</a> <a href="">CGV</a>
+								<a href="./index.html">Rạp phim</a> <a href="" th:text="*{name}"></a>
 							</div>
 						</div>
 					</div>
@@ -78,9 +78,9 @@
 					</div>
 					<div class="col-lg-9" style="text-align: left; margin-top: 50px;">
 						<h4>
-							<strong style="color: white">CGV</strong>
+							<strong style="color: white" th:text="*{name}"></strong>
 						</h4>
-						<p style="color: white;">Hệ thống rạp phim lớn nhất Việt Nam</p>
+						<p style="color: white;" th:text="*{address}"></p>
 						<p style="color: white;">
 							<i class="bi bi-star-fill" style="color: rgb(238, 238, 16);"></i><i
 								class="bi bi-star-fill" style="color: rgb(245, 245, 16);"></i><i
