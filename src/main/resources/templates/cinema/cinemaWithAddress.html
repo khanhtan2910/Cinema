@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<main>	
+	<main th:object=${cinema}>	
 		
 		<script>
 			function setBgColor(index) {
@@ -59,7 +59,8 @@
 						<div class="breadcrumb__text">
 							<div class="breadcrumb__links">
 								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-								<a href="./index.html">Rạp phim</a> <a href="" th:utext="${cinemaCompany}"></a>
+								<a href="./index.html">Rạp phim</a> <a href="" th:utext="*{company}"></a>
+								<a href="" th:utext="*{name}"></a>
 							</div>
 						</div>
 					</div>
@@ -77,7 +78,7 @@
 					</div>
 					<div class="col-lg-9" style="text-align: left; margin-top: 50px;">
 						<h4>
-							<strong style="color: white" th:utext="${cinemaCompany}"></strong>
+							<strong style="color: white" th:utext="*{company}"></strong>
 						</h4>
 						<p style="color: white;"></p>
 						<p style="color: white;">
@@ -88,7 +89,7 @@
 								class="bi bi-star-fill" style="color: rgb(241, 241, 11);"></i>
 							1740 đánh giá
 						</p>
-						<p class="text-white" th:utext="${cinemaList.size()}+' cửa hàng trong hệ thống'"></p>
+						<p class="text-white" th:text="${address}"></p>
 					</div>
 				</div>
 			</div>
@@ -99,65 +100,11 @@
 					<h2 style="color: rgb(233, 64, 148);" class="mb-3">
 						<strong>Tìm rạp chiếu phim Mama</strong>
 					</h2>
-					<div class="col-lg-12 row">
-						<div class="col-lg-2"></div>
-						<div class="card col-lg-8" style="height: 90%;">
-							<div class=" p-2 row">
-								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
-								<button type="button" class="btn btn-outline-danger mr-2"
-									style="width: 150px; height: 40px;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">
-									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
-								</button>
-								<button type="button" class="btn btn-outline-danger"
-									style="width: 150px; height: 40px;">
-									<i class="bi bi-cursor"></i> Gần Bạn
-								</button>
-							</div>
-							
+					<div class="col-lg-12 row">													
 							<div class="col-lg-12 row" style="text-align: left;">
-								<div
-									class="col-lg-4 border-top border-end shop__sidebar__search ">
-									<form action="#" class="mt-1">
-										<input type="text" placeholder="Search...">
-										<button type="submit">
-											<span class="icon_search"></span>
-										</button>
-									</form>
-
-									<div class="list-group mt-2 " >
-										<button type="button"
-											class="list-group-item list-group-item-action" th:each="cinema : ${cinemaList}" th:object="${cinema}"> 
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3 text-black" th:text="*{name}"></h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										
-									</div>
-								</div>
-								<div class="col-lg-8 border-top">
-									<div class=" col-lg-12 row mt-2">
-										<div class="col-lg-1 ">
-											<a href="#"><img class="img-thumbnail"
-												src="ShowtimeMovie/img/logoQT.png" alt=""
-												style="height: 60%; width: 100%;"></a>
-										</div>
-										<div class="col-lg-11">
-											<a href="#" style="color: black;">Lịch chiếu phim</a>
-											<p>tầng 5 tòa nhà gì đó</p>
-										</div>
-									</div>
+								
+								<div class="col-lg-6 border-top offset-3" style="border: 1px solid #C0C0C0;border-radius: 5px">
+									
 									<div class="row mt-1 ml-2">
 										<button id="ngaychieungoai1" type="button"
 											class=" mr-2 card text-center p-0 "

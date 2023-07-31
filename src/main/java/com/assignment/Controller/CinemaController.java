@@ -29,10 +29,7 @@ public class CinemaController {
 	public String detailCinema(@PathVariable("cinemaCompany") String cinemaCompany, Model model, @RequestParam(name= "address", defaultValue = "Hồ Chí Minh") String address) {
 		List<com.assignment.Entity.Cinema> cinemas =  cinemaService.findByCompany(cinemaCompany);		
 		List<com.assignment.Entity.Cinema> cinemaList = new ArrayList<>();
-//		String Address = "Hồ Chí Minh";
-//		if (!address.equals("")) {
-//			Address  =address;	
-//		}
+
 		for (com.assignment.Entity.Cinema cinema : cinemas) {
 			if (cinema.getAddress().contains(address)) {
 				cinemaList.add(cinema);
@@ -42,5 +39,12 @@ public class CinemaController {
 		model.addAttribute("cinemaList", cinemaList);
 		
 		return "cinema/detailCinema";
-	}	
+	}
+	@RequestMapping("/cinemaWithAddress")
+	public String cinemaWithAddress(@RequestParam(name="cinemaId") String cinemaId, Model model) {
+		com.assignment.Entity.Cinema cinema = cinemaService.findById(Integer.parseInt(cinemaId));
+		
+		model.addAttribute("cinema", cinema);		
+		return "cinema/cinemaWithAddress";
+	}
 }
