@@ -294,18 +294,18 @@
 											<span class="icon_search"></span>
 										</button>
 									</form>
-									<div class="list-group mt-2 "
-										ng-repeat="cinema in cinemas| filter:search">
-										<a>
+									<form class="list-group mt-2 "
+										ng-repeat="cinema in cinemas| filter:search" action="/cinemaWithAddress">
 										<div class="list-group-item list-group-item-action "
-											style="height: 100px;">
-											<div class="row col-lg-12">
-												<div class="col-lg-2 " style="width: 80px; height: 60px;">
-													<a> <img class="img-thumbnail"
+											style="height: 80px;">
+											<button class="row col-lg-12" style="text-align: left;" type="submit">
+												<div class="col-lg-2 " style="width: 80px; height: 60px; margin-top: 9px;">
+													 <img class="img-thumbnail"
 														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
+														style="height: 100%; width: 100%;">
 												</div>
 												<div class="col-lg-8">
+													<input name="cinemaId" value="{{cinema.cinemaid}}" hidden>
 													<h6><strong>{{cinema.name}}</strong></h6>
 													<p style="width: 100%;font-size:small">{{cinema.address}}</p>
 												</div>
@@ -314,14 +314,12 @@
 														data-bs-target="#exampleModal1">[Bản đồ] </a>
 												</div>
 												<div class="col-lg-1 mt-4" style="text-align: right;">
-												<i class="bi bi-chevron-compact-right" style="margin-left: 125px; font-size: large;"></i>
+												<i class="bi bi-chevron-compact-right" style="margin-left: 150%; font-size: large;"></i>
 													
 												</div>
-											</div>
-										</div>
-										</a>
-										
-									</div>
+											</button>
+										</div>									
+									</form>
 								</div>
 
 							</div>
@@ -715,7 +713,7 @@
 				 <button type="button" class="list-group-item button2 mr-2 ml-2 border" style="height: 150px;width: 430px;">
                 <div class="row col-lg-12">
                     <div class="col-lg-3 ">
-                        <a href="#"><img class="img-thumbnail" src="ShowtimeMovie/img/CGVlogo.jpg" alt=""
+                        <a th:href="@{/CGV}"><img class="img-thumbnail" src="ShowtimeMovie/img/CGVlogo.jpg" alt=""
                                 style="height: 60%;width: 100%;margin-top: 20px;"></a>
                     </div>
                     <div class="col-lg-9" style="text-align: left;">
@@ -757,7 +755,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/Galaxy Cinema}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/GLXlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -781,7 +779,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/BHD Star}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/BHDlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -805,7 +803,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/BHD Star}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/logoQT.png" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -829,7 +827,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/Cinestar}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/Cinestarlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -853,7 +851,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/Mega GS}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/Megalogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -877,7 +875,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/DCINE}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/DcineLogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -901,7 +899,7 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/Cinemax}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/Cinemaxlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>

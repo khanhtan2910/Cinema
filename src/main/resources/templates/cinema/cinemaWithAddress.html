@@ -32,11 +32,28 @@
 <link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
 
 <link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBONohdxuRWn3lXeJJZgiCrT7DiUciXPEQ&callback=initMap"
+	async defer></script>
+<script type="text/javascript">
+	var map = new google.maps.Map(document.getElementById("map"), {
+		center : {
+			lat : 21.0168864,
+			lng : 105.7855574
+		},
+		zoom : 15
+	});
+</script>
+<style type="text/css">
+#map {
+	height: 100%;
+}
+</style>
 </head>
 
 <body>
-	<main th:object=${cinema}>	
-		
+	<main th:object=${cinema}>
+
 		<script>
 			function setBgColor(index) {
 				for (let count = 1; count < 8; count++) {
@@ -51,6 +68,7 @@
 				document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
 
 			}
+			var date  = new date()
 		</script>
 		<section class="breadcrumb-option">
 			<div class="container">
@@ -59,8 +77,8 @@
 						<div class="breadcrumb__text">
 							<div class="breadcrumb__links">
 								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-								<a href="./index.html">Rạp phim</a> <a href="" th:utext="*{company}"></a>
-								<a href="" th:utext="*{name}"></a>
+								<a href="./index.html">Rạp phim</a> <a href=""
+									th:utext="*{company}"></a> <a href="" th:utext="*{name}"></a>
 							</div>
 						</div>
 					</div>
@@ -78,18 +96,14 @@
 					</div>
 					<div class="col-lg-9" style="text-align: left; margin-top: 50px;">
 						<h4>
-							<strong style="color: white" th:utext="*{company}"></strong>
+							<strong style="color: white" th:utext="*{name}"></strong>
 						</h4>
 						<p style="color: white;"></p>
-						<p style="color: white;">
-							<i class="bi bi-star-fill" style="color: rgb(238, 238, 16);"></i><i
-								class="bi bi-star-fill" style="color: rgb(245, 245, 16);"></i><i
-								class="bi bi-star-fill" style="color: rgb(247, 247, 15);"></i><i
-								class="bi bi-star-fill" style="color: rgb(236, 236, 16);"></i><i
-								class="bi bi-star-fill" style="color: rgb(241, 241, 11);"></i>
-							1740 đánh giá
-						</p>
-						<p class="text-white" th:text="${address}"></p>
+
+						<p class="text-white" th:text="*{address}"></p>
+						<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1">[Xem
+							Bản đồ]</a> <input id="longitude" value="*{longitude}" hidden>
+						<input id="latitude" value="*{latitude}" hidden>
 					</div>
 				</div>
 			</div>
@@ -100,211 +114,212 @@
 					<h2 style="color: rgb(233, 64, 148);" class="mb-3">
 						<strong>Tìm rạp chiếu phim Mama</strong>
 					</h2>
-					<div class="col-lg-12 row">													
-							<div class="col-lg-12 row" style="text-align: left;">
-								
-								<div class="col-lg-6 border-top offset-3" style="border: 1px solid #C0C0C0;border-radius: 5px">
-									
-									<div class="row mt-1 ml-2">
-										<button id="ngaychieungoai1" type="button"
-											class=" mr-2 card text-center p-0 "
-											style="width: 10%; border-color: #FF0099;"
-											onclick="setBgColor(1)">
-											<div id="ngaychieu1"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: #FF0099; color: white;">21</div>
-											<div id="ngauchieuduoi1"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small; color: #FF0099;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai2" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(2)">
-											<div id="ngaychieu2"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi2"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai3" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(3)">
-											<div id="ngaychieu3"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi3"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai4" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(4)">
-											<div id="ngaychieu4"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi4"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai5" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(5)">
-											<div id="ngaychieu5"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi5"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai6" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(6)">
-											<div id="ngaychieu6"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi6"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
-										<button id="ngaychieungoai7" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
-											onclick="setBgColor(7)">
-											<div id="ngaychieu7"
-												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
-											<div id="ngauchieuduoi7"
-												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
-										</button>
+					<div class="col-lg-12 row">
+						<div class="col-lg-12 row" style="text-align: left;">
 
-									</div>
-									<div class="card-body border-top mt-1 p-0 scrollbar">
-										<div class="shop__sidebar__categories">
-											<ul class="">
-												<div class="card-body col-lg-12 row">
-													<div class="col-lg-3">
-														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
-															alt="" style="width: 100%; height: 100%;">
-													</div>
-													<div class="col-lg-9 down-content">
+							<div class="col-lg-6 border-top offset-3"
+								style="border: 1px solid #C0C0C0; border-radius: 5px">
 
-														<h6>
-															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
-														</h6>
-														<span>Phiêu lưu,Gây Cấn Hành Động</span>
-														<h6 class="mt-3">
-															<strong>2D Phụ Đề</strong>
-														</h6>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-													</div>
+								<div class="row mt-1 ml-2">
+									<button id="ngaychieungoai1" type="button"
+										class=" mr-2 card text-center p-0 "
+										style="width: 10%; border-color: #FF0099;"
+										onclick="setBgColor(1)">
+										<div id="ngaychieu1"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: #FF0099; color: white;" th:text="${dayOfWeek}"></div>
+										<div id="ngauchieuduoi1"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small; color: #FF0099;">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai2" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(2)">
+										<div id="ngaychieu2"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+1"></div>
+										<div id="ngauchieuduoi2"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[1]}"></div>
+									</button>
+									<button id="ngaychieungoai3" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(3)">
+										<div id="ngaychieu3"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+2">21</div>
+										<div id="ngauchieuduoi3"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[2]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai4" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(4)">
+										<div id="ngaychieu4"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+3">21</div>
+										<div id="ngauchieuduoi4"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[3]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai5" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(5)">
+										<div id="ngaychieu5"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+4">21</div>
+										<div id="ngauchieuduoi5"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[4]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai6" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(6)">
+										<div id="ngaychieu6"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+5">21</div>
+										<div id="ngauchieuduoi6"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[5]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai7" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(7)">
+										<div id="ngaychieu7"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+6">21</div>
+										<div id="ngauchieuduoi7"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[6]}">Hôm nay</div>
+									</button>
 
+								</div>
+								<div class="card-body border-top mt-1 p-0 scrollbar">
+									<div class="shop__sidebar__categories">
+										<ul class="">
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
 												</div>
-												<hr>
-												<div class="card-body col-lg-12 row">
-													<div class="col-lg-3">
-														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
-															alt="" style="width: 100%; height: 100%;">
-													</div>
-													<div class="col-lg-9 down-content">
+												<div class="col-lg-9 down-content">
 
-														<h6>
-															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
-														</h6>
-														<span>Phiêu lưu,Gây Cấn Hành Động</span>
-														<h6 class="mt-3">
-															<strong>2D Phụ Đề</strong>
-														</h6>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-													</div>
-
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
 												</div>
-												<hr>
-												<div class="card-body col-lg-12 row">
-													<div class="col-lg-3">
-														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
-															alt="" style="width: 100%; height: 100%;">
-													</div>
-													<div class="col-lg-9 down-content">
 
-														<h6>
-															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
-														</h6>
-														<span>Phiêu lưu,Gây Cấn Hành Động</span>
-														<h6 class="mt-3">
-															<strong>2D Phụ Đề</strong>
-														</h6>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-														<button type="button"
-															class="btn btn-outline-info mr-2 mt-1"
-															style="width: 150px;">
-															<strong>23:20</strong>~02:05
-														</button>
-													</div>
-
+											</div>
+											<hr>
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
 												</div>
-											</ul>
-										</div>
+												<div class="col-lg-9 down-content">
+
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+												</div>
+
+											</div>
+											<hr>
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
+												</div>
+												<div class="col-lg-9 down-content">
+
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+												</div>
+
+											</div>
+										</ul>
 									</div>
 								</div>
 							</div>
-
 						</div>
+
 					</div>
-					<div class="col-lg-2"></div>
 				</div>
+				<div class="col-lg-2"></div>
+			</div>
 			</div>
 			</div>
 		</section>
@@ -451,9 +466,9 @@
 								</form>
 							</div>
 						</div>
-						<form class="modal-body row ml-2" >
+						<form class="modal-body row ml-2">
 							<input type="submit" name="address" value="Hồ Chí Minh">
-							<input type="submit" name="address" value="Hà Nội">	
+							<input type="submit" name="address" value="Hà Nội">
 						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -463,6 +478,33 @@
 				</div>
 			</div>
 		</section>
+		<div class="modal fade" id="exampleModal1" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg ">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title offset-lg-5" id="exampleModalLabel">Bản
+							đồ</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div id="map-container-google-1"
+							class="z-depth-1-half map-container"
+							style="height: 600px; width: 600px;">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d582.517144181984!2d106.66219695255259!3d10.834817967499722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529a786cb6d63%3A0x18bd509e1d3ad74a!2sGalaxy%20Cinema%20Quang%20Trung!5e0!3m2!1svi!2s!4v1690826031846!5m2!1svi!2s"
+								width="760" height="600" style="border: 0;" allowfullscreen=""
+								loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 	</main>
 	<script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
 	<script src="ShowtimeMovie/js/bootstrap.min.js"></script>

@@ -35,8 +35,8 @@
 </head>
 
 <body>
-	<main>	
-		
+	<main>
+
 		<script>
 			function setBgColor(index) {
 				for (let count = 1; count < 8; count++) {
@@ -59,7 +59,8 @@
 						<div class="breadcrumb__text">
 							<div class="breadcrumb__links">
 								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-								<a href="./index.html">Rạp phim</a> <a href="" th:utext="${cinemaCompany}"></a>
+								<a href="./index.html">Rạp phim</a> <a href=""
+									th:utext="${cinemaCompany}"></a>
 							</div>
 						</div>
 					</div>
@@ -88,7 +89,8 @@
 								class="bi bi-star-fill" style="color: rgb(241, 241, 11);"></i>
 							1740 đánh giá
 						</p>
-						<p class="text-white" th:utext="${cinemaList.size()}+' cửa hàng trong hệ thống'"></p>
+						<p class="text-white"
+							th:utext="${cinemaList.size()}+' cửa hàng trong hệ thống'"></p>
 					</div>
 				</div>
 			</div>
@@ -109,12 +111,9 @@
 									data-bs-target="#exampleModal">
 									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
 								</button>
-								<button type="button" class="btn btn-outline-danger"
-									style="width: 150px; height: 40px;">
-									<i class="bi bi-cursor"></i> Gần Bạn
-								</button>
-							</div>
 							
+							</div>
+
 							<div class="col-lg-12 row" style="text-align: left;">
 								<div
 									class="col-lg-4 border-top border-end shop__sidebar__search ">
@@ -125,9 +124,10 @@
 										</button>
 									</form>
 
-									<div class="list-group mt-2 " >
+									<div class="list-group mt-2 ">
 										<button type="button"
-											class="list-group-item list-group-item-action" th:each="cinema : ${cinemaList}" th:object="${cinema}"> 
+											class="list-group-item list-group-item-action"
+											th:each="cinema : ${cinemaList}" th:object="${cinema}">
 											<div class="row col-lg-12">
 												<div class="col-lg-3 ">
 													<a href="#"><img class="img-thumbnail"
@@ -143,7 +143,7 @@
 												</div>
 											</div>
 										</button>
-										
+
 									</div>
 								</div>
 								<div class="col-lg-8 border-top">
@@ -161,74 +161,81 @@
 									<div class="row mt-1 ml-2">
 										<button id="ngaychieungoai1" type="button"
 											class=" mr-2 card text-center p-0 "
-											style="width: 10%; border-color: #FF0099;"
+											style="width:11%; border-color: #FF0099;"
 											onclick="setBgColor(1)">
 											<div id="ngaychieu1"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: #FF0099; color: white;">21</div>
+												style="font-size: larger; background-color: #FF0099; color: white;"
+												th:text="${dayOfWeek}"></div>
 											<div id="ngauchieuduoi1"
 												class="card-footer text-center p-2 w-100 bg-white"
 												style="font-size: small; color: #FF0099;">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai2" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(2)">
 											<div id="ngaychieu2"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+1"></div>
 											<div id="ngauchieuduoi2"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[1]}"></div>
 										</button>
 										<button id="ngaychieungoai3" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(3)">
 											<div id="ngaychieu3"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+2">21</div>
 											<div id="ngauchieuduoi3"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[2]}">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai4" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(4)">
 											<div id="ngaychieu4"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+3">21</div>
 											<div id="ngauchieuduoi4"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[3]}">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai5" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(5)">
 											<div id="ngaychieu5"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+4">21</div>
 											<div id="ngauchieuduoi5"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[4]}">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai6" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(6)">
 											<div id="ngaychieu6"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+5">21</div>
 											<div id="ngauchieuduoi6"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[5]}">Hôm nay</div>
 										</button>
 										<button id="ngaychieungoai7" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;"
+											class=" mr-2 card text-center p-0 " style="width:11%;"
 											onclick="setBgColor(7)">
 											<div id="ngaychieu7"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: rgb(236, 234, 234);">21</div>
+												style="font-size: larger; background-color: rgb(236, 234, 234);"
+												th:text="${dayOfWeek}+6">21</div>
 											<div id="ngauchieuduoi7"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small;">Hôm nay</div>
+												style="font-size: small;" th:text="${days[6]}">Hôm nay</div>
 										</button>
 
 									</div>
@@ -504,9 +511,9 @@
 								</form>
 							</div>
 						</div>
-						<form class="modal-body row ml-2" >
+						<form class="modal-body row ml-2">
 							<input type="submit" name="address" value="Hồ Chí Minh">
-							<input type="submit" name="address" value="Hà Nội">	
+							<input type="submit" name="address" value="Hà Nội">
 						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
