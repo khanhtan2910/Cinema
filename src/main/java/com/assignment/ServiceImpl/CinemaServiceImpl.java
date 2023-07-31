@@ -56,5 +56,17 @@ public class CinemaServiceImpl implements CinemaService{
 		return cinemaDAO.findByAddress(address);
 	}
 
+	@Override
+	public List<Cinema> findByName(String cinemaName) {
+		// TODO Auto-generated method stub
+		return cinemaDAO.findByName(cinemaName);
+	}
+
+	@Override
+	public List<Cinema> findByCompany(String cinemaCompany) {
+		// TODO Auto-generated method stub
+		return cinemaDAO.findByCompany(cinemaCompany);
+	}
+
 	
 }

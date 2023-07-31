@@ -148,9 +148,9 @@
 						<div class="card col-lg-6">
 							<div class=" p-2 row">
 								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
-								<button type="button" class="btn btn-outline-danger mr-2 " id = "showAddress"
-									style="width: 150px; height: 40px;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">
+								<button type="button" class="btn btn-outline-danger mr-2 "
+									id="showAddress" style="width: 150px; height: 40px;"
+									data-bs-toggle="modal" data-bs-target="#exampleModal">
 									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
 								</button>
 								<button type="button" class="btn btn-outline-danger"
@@ -200,7 +200,8 @@
 											<span class="icon_search"></span>
 										</button>
 									</form>
-									<div class="list-group mt-2 " ng-repeat="cinema in cinemas| filter:search">
+									<div class="list-group mt-2 "
+										ng-repeat="cinema in cinemas| filter:search">
 										<button class="list-group-item list-group-item-action "
 											style="height: 70px;">
 											<div class="row col-lg-12">
@@ -240,10 +241,19 @@
 												</form>
 											</div>
 										</div>
-										<div class="modal-body row ml-2" action="/cinema">
-											<button style="width: 180px; height: 50px; margin-right:3px;" type="button" ng-click="searchAddress('Hồ Chí Minh')"  data-bs-dismiss="modal">Hồ Chí Minh</button>
-											<button	style="width: 180px; height: 50px;margin-right:3px;"  type="button"	ng-click="searchAddress('Hà Nội')" data-bs-dismiss="modal">Hà Nội</button>	
-											<button	style="width: 180px; height: 50px;margin-right:3px;"  type="button"	ng-click="searchAddress('Bình Dương')"  data-bs-dismiss="modal">Bình Dương</button>					
+										<div class="modal-body row ml-2">
+											<button
+												style="width: 180px; height: 50px; margin-right: 3px;"
+												type="button" ng-click="searchAddress('Hồ Chí Minh')"
+												data-bs-dismiss="modal">Hồ Chí Minh</button>
+											<button
+												style="width: 180px; height: 50px; margin-right: 3px;"
+												type="button" ng-click="searchAddress('Hà Nội')"
+												data-bs-dismiss="modal">Hà Nội</button>
+											<button
+												style="width: 180px; height: 50px; margin-right: 3px;"
+												type="button" ng-click="searchAddress('Bình Dương')"
+												data-bs-dismiss="modal">Bình Dương</button>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
@@ -269,8 +279,9 @@
 					class="list-group-item button2 mr-2 ml-2 border"
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
+
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a  th:href="@{/CGV}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/logoQT.png" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
@@ -288,19 +299,20 @@
 								1740 đánh giá
 							</p>
 						</div>
+
 					</div>
 				</button>
 				<button type="button" class="list-group-item button2 ml-2 border"
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a  th:href="@{/Beta}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/logoQT.png" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Beta</strong>
 							</h5>
 							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
 							<p>

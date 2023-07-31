@@ -32,12 +32,11 @@
 <link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
 
 <link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
-
-
 </head>
 
 <body>
-	<main th:object="${cinema}">
+	<main>	
+		
 		<script>
 			function setBgColor(index) {
 				for (let count = 1; count < 8; count++) {
@@ -60,7 +59,7 @@
 						<div class="breadcrumb__text">
 							<div class="breadcrumb__links">
 								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
-								<a href="./index.html">Rạp phim</a> <a href="" th:text="*{name}"></a>
+								<a href="./index.html">Rạp phim</a> <a href="" th:utext="${cinemaCompany}"></a>
 							</div>
 						</div>
 					</div>
@@ -78,9 +77,9 @@
 					</div>
 					<div class="col-lg-9" style="text-align: left; margin-top: 50px;">
 						<h4>
-							<strong style="color: white" th:text="*{name}"></strong>
+							<strong style="color: white" th:utext="${cinemaCompany}"></strong>
 						</h4>
-						<p style="color: white;" th:text="*{address}"></p>
+						<p style="color: white;"></p>
 						<p style="color: white;">
 							<i class="bi bi-star-fill" style="color: rgb(238, 238, 16);"></i><i
 								class="bi bi-star-fill" style="color: rgb(245, 245, 16);"></i><i
@@ -89,6 +88,7 @@
 								class="bi bi-star-fill" style="color: rgb(241, 241, 11);"></i>
 							1740 đánh giá
 						</p>
+						<p class="text-white" th:utext="${cinemaList.size()}+' cửa hàng trong hệ thống'"></p>
 					</div>
 				</div>
 			</div>
@@ -114,39 +114,7 @@
 									<i class="bi bi-cursor"></i> Gần Bạn
 								</button>
 							</div>
-							<div class="row p-2 ml-2">
-								<button type="button" class="btn btn-outline-light border"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-
-							</div>
+							
 							<div class="col-lg-12 row" style="text-align: left;">
 								<div
 									class="col-lg-4 border-top border-end shop__sidebar__search ">
@@ -157,10 +125,9 @@
 										</button>
 									</form>
 
-									<div class="list-group mt-2 ">
-
+									<div class="list-group mt-2 " >
 										<button type="button"
-											class="list-group-item list-group-item-action">
+											class="list-group-item list-group-item-action" th:each="cinema : ${cinemaList}" th:object="${cinema}"> 
 											<div class="row col-lg-12">
 												<div class="col-lg-3 ">
 													<a href="#"><img class="img-thumbnail"
@@ -168,7 +135,7 @@
 														style="height: 100%; width: 100%;"></a>
 												</div>
 												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
+													<h6 class="mt-3 text-black" th:text="*{name}"></h6>
 												</div>
 												<div class="col-lg-2 mt-3 " style="text-align: right;">
 													<i class="bi bi-chevron-double-right"
@@ -176,125 +143,7 @@
 												</div>
 											</div>
 										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
-										<button type="button"
-											class="list-group-item list-group-item-action">
-											<div class="row col-lg-12">
-												<div class="col-lg-3 ">
-													<a href="#"><img class="img-thumbnail"
-														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
-												</div>
-												<div class="col-lg-7">
-													<h6 class="mt-3">Beta Quang Trung</h6>
-												</div>
-												<div class="col-lg-2 mt-3 " style="text-align: right;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 60px;"></i>
-												</div>
-											</div>
-										</button>
+										
 									</div>
 								</div>
 								<div class="col-lg-8 border-top">
@@ -311,11 +160,12 @@
 									</div>
 									<div class="row mt-1 ml-2">
 										<button id="ngaychieungoai1" type="button"
-											class=" mr-2 card text-center p-0 " style="width: 10%;border-color: #FF0099;"
+											class=" mr-2 card text-center p-0 "
+											style="width: 10%; border-color: #FF0099;"
 											onclick="setBgColor(1)">
 											<div id="ngaychieu1"
 												class="card-header text-center p-1 w-100 "
-												style="font-size: larger; background-color: #FF0099;color: white;">21</div>
+												style="font-size: larger; background-color: #FF0099; color: white;">21</div>
 											<div id="ngauchieuduoi1"
 												class="card-footer text-center p-2 w-100 bg-white"
 												style="font-size: small; color: #FF0099;">Hôm nay</div>
@@ -654,25 +504,10 @@
 								</form>
 							</div>
 						</div>
-						<div class="modal-body row ml-2">
-							<div class="card m-1"
-								style="width: 180px; height: 50px; text-align: center;">
-								<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
-							</div>
-							<div class="card m-1"
-								style="width: 180px; height: 50px; text-align: center;">
-								<a href="" style="color: black; margin-top: 10px;">Hà Nội</a>
-							</div>
-							<div class="card m-1"
-								style="width: 180px; height: 50px; text-align: center;">
-								<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
-							</div>
-							<div class="card m-1"
-								style="width: 180px; height: 50px; text-align: center;">
-								<a href="" style="color: black; margin-top: 10px;">Tp.HCM</a>
-							</div>
-
-						</div>
+						<form class="modal-body row ml-2" >
+							<input type="submit" name="address" value="Hồ Chí Minh">
+							<input type="submit" name="address" value="Hà Nội">	
+						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">Close</button>
