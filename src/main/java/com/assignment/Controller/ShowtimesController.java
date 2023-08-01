@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ShowtimesController {
+	@RequestMapping("/mamaCinema")
+	public String CinemaWeb() {
+		return "redirect:/Showtime";
+	}
 	@RequestMapping("/Showtime")
 	public String showTime(Model model) {
 		LocalDate currentdate = LocalDate.now();
