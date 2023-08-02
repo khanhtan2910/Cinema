@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet"
+	href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
+<link rel="stylesheet" href="ShowtimeMovie/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/magnific-popup.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/style.css"
+	type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/font-awesome.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/templatemo-hexashop.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
+
+<link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBONohdxuRWn3lXeJJZgiCrT7DiUciXPEQ&callback=initMap"
+	async defer></script>
+<script type="text/javascript">
+	var map = new google.maps.Map(document.getElementById("map"), {
+		center : {
+			lat : 21.0168864,
+			lng : 105.7855574
+		},
+		zoom : 15
+	});
+</script>
+<style type="text/css">
+#map {
+	height: 100%;
+}
+</style>
+</head>
+
+<body>
+	<main th:object=${cinema}>
+
+		<script>
+			function setBgColor(index) {
+				for (let count = 1; count < 8; count++) {
+					document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
+					document.getElementById("ngaychieu" + count).style.color = "black";
+					document.getElementById("ngauchieuduoi" + count).style.color = "black";
+					document.getElementById("ngaychieungoai" + count).style.borderColor = "#C0C0C0";
+				}
+				document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
+				document.getElementById("ngaychieu" + index).style.color = "white";
+				document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
+				document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
+
+			}
+			var date  = new date()
+		</script>
+		<section class="breadcrumb-option">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb__text">
+							<div class="breadcrumb__links">
+								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
+								<a href="./index.html">Rạp phim</a> <a href=""
+									th:utext="*{company}"></a> <a href="" th:utext="*{name}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="breadcrumb-optionn"
+			style="background-image: url(ShowtimeMovie/img/CGV.jpg); background-size: 100%; height: 60%;">
+			<div class="container">
+				<div class="row col-lg-12" style="margin-top: 20%;">
+					<div class="col-lg-3 ">
+						<a href="#"><img class="img-thumbnail"
+							src="ShowtimeMovie/img/logoQT.png" alt=""
+							style="height: 60%; width: 90%; margin-top: 20px;"></a>
+					</div>
+					<div class="col-lg-9" style="text-align: left; margin-top: 50px;">
+						<h4>
+							<strong style="color: white" th:utext="*{name}"></strong>
+						</h4>
+						<p style="color: white;"></p>
+
+						<p class="text-white" th:text="*{address}"></p>
+						<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1">[Xem
+							Bản đồ]</a> <input id="longitude" value="*{longitude}" hidden>
+						<input id="latitude" value="*{latitude}" hidden>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="shop-details">
+				<div class="product__details__pic">
+					<h2 style="color: rgb(233, 64, 148);" class="mb-3">
+						<strong>Tìm rạp chiếu phim Mama</strong>
+					</h2>
+					<div class="col-lg-12 row">
+						<div class="col-lg-12 row" style="text-align: left;">
+
+							<div class="col-lg-6 border-top offset-3"
+								style="border: 1px solid #C0C0C0; border-radius: 5px">
+
+								<div class="row mt-1 ml-2">
+									<button id="ngaychieungoai1" type="button"
+										class=" mr-2 card text-center p-0 "
+										style="width: 10%; border-color: #FF0099;"
+										onclick="setBgColor(1)">
+										<div id="ngaychieu1"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: #FF0099; color: white;" th:text="${dayOfWeek}"></div>
+										<div id="ngauchieuduoi1"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small; color: #FF0099;">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai2" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(2)">
+										<div id="ngaychieu2"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+1"></div>
+										<div id="ngauchieuduoi2"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[1]}"></div>
+									</button>
+									<button id="ngaychieungoai3" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(3)">
+										<div id="ngaychieu3"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+2">21</div>
+										<div id="ngauchieuduoi3"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[2]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai4" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(4)">
+										<div id="ngaychieu4"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+3">21</div>
+										<div id="ngauchieuduoi4"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[3]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai5" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(5)">
+										<div id="ngaychieu5"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+4">21</div>
+										<div id="ngauchieuduoi5"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[4]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai6" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(6)">
+										<div id="ngaychieu6"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+5">21</div>
+										<div id="ngauchieuduoi6"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[5]}">Hôm nay</div>
+									</button>
+									<button id="ngaychieungoai7" type="button"
+										class=" mr-2 card text-center p-0 " style="width: 10%;"
+										onclick="setBgColor(7)">
+										<div id="ngaychieu7"
+											class="card-header text-center p-1 w-100 "
+											style="font-size: larger; background-color: rgb(236, 234, 234);" th:text="${dayOfWeek}+6">21</div>
+										<div id="ngauchieuduoi7"
+											class="card-footer text-center p-2 w-100 bg-white"
+											style="font-size: small;" th:text="${days[6]}">Hôm nay</div>
+									</button>
+
+								</div>
+								<div class="card-body border-top mt-1 p-0 scrollbar">
+									<div class="shop__sidebar__categories">
+										<ul class="">
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
+												</div>
+												<div class="col-lg-9 down-content">
+
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+												</div>
+
+											</div>
+											<hr>
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
+												</div>
+												<div class="col-lg-9 down-content">
+
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+												</div>
+
+											</div>
+											<hr>
+											<div class="card-body col-lg-12 row">
+												<div class="col-lg-3">
+													<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+														alt="" style="width: 100%; height: 100%;">
+												</div>
+												<div class="col-lg-9 down-content">
+
+													<h6>
+														<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+													</h6>
+													<span>Phiêu lưu,Gây Cấn Hành Động</span>
+													<h6 class="mt-3">
+														<strong>2D Phụ Đề</strong>
+													</h6>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+													<button type="button"
+														class="btn btn-outline-info mr-2 mt-1"
+														style="width: 150px;">
+														<strong>23:20</strong>~02:05
+													</button>
+												</div>
+
+											</div>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			</div>
+			</div>
+		</section>
+		<h1 style="text-align: center; color: rgb(240, 17, 154);">
+			<strong> Phim đang chiếu </strong>
+		</h1>
+		<section class="Am-img-slider-container">
+			<div class="swiper blog-slider">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt="" src="ShowtimeMovie/img/Conan.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="ShowtimeMovie/img/Conan.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">Thám tử
+								lừng danh Conan 26 : Tàu Ngầm Sắt Màu Đen</h2>
+							<p class="blog-slider__text">Hoạt hình,hình sự,bí ẩn,hành
+								động</p>
+							<span class="blog-slider__rate"> IMDB 9.4/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Endless Love 2014</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Atque, illum odit? Odit ipsum enim
+								sapiente eius, ad numqure.</p>
+							<span class="blog-slider__rate"> IMDB 7.5/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">endless 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Underwater 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image  blog-slider__backimg" alt=""
+								src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
+								<div class="overly">
+									<a href="#" title="-3"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Mulan 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<section >
+			<div class="col-lg-12 row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 row ">
+					<div class="col-lg-5">
+						<h1 style="color: rgb(247, 96, 201);">Bạn hỏi , Ví MaMa trả
+							lời</h1>
+					</div>
+					<div class="accordion accordion-flush col-lg-4 "
+						id="accordionFlushExample">
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingOne">
+								<button class="accordion-button collapsed"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									<strong>Cách mua vé phim CGV trên Momo?</strong>
+								</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Để đặt vé CGV trên Ví MoMo, các bạn cần làm theo các bước sau
+									đây:
+
+									<p>
+										<strong>Bước 1:</strong> Chọn mục ‘Mua vé xem phim’.
+									</p>
+									<p>
+										<strong>Bước 2:</strong> Chọn Rạp > CGV.
+									</p>
+									<p>
+										<strong>Bước 3:</strong> Chọn cụm rạp CGV bạn muốn xem
+									</p>
+									<p>
+										<strong>Bước 4:</strong> Chọn phim, suất chiếu
+									</p>
+									<p>
+										<strong>Bước 5:</strong> Chọn ghế ngồi
+									</p>
+									<p>
+										<strong>Bước 6:</strong> Chọn combo bắp nước (nếu có nhu cầu).
+									</p>
+									<p>
+										<strong>Bước 7:</strong> Kiểm tra lại thông tin đặt vé, xác
+										nhận và thanh toán.
+									</p>
+									<p>
+										<strong>Bước 8:</strong> Quét mã code QR/Barcode tại quầy vé.
+									</p>
+									<p>Sau khi giao dịch thành công, bạn sẽ nhận được thông báo
+										trong ứng dụng có lưu mã vé.</p>
+									Bạn cũng có thể xem lại mã vé khi vào xem chi tiết giao dịch
+									trong mục <strong>"Lịch sử giao dịch"</strong>
+
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingTwo">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+									aria-expanded="false" aria-controls="flush-collapseTwo">
+									<strong> Cách nhận vé CGV xem phim tại rạp? </strong>
+								</button>
+							</h2>
+							<div id="flush-collapseTwo" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingTwo"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Bạn có thể nhận vé xem phim CGV tại rạp bằng một trong 2 cách
+									sau:
+									<p>Cung cấp mã lấy vé tại quầy mua vé online tại rạp CGV</p>
+									<p>Đọc cho nhân viên số điện thoại dùng để đăng ký khi mua
+										vé và nhận vé.</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingThree">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+									aria-expanded="false" aria-controls="flush-collapseThree">
+									<strong>Không được án dụng vé 79k cuối tuần khi mua vé
+										CGV</strong>
+								</button>
+							</h2>
+							<div id="flush-collapseThree" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingThree"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									Bạn vui lòng kiểm tra lại điều khoản và điều kiện của ưu đãi vé
+									xem phim CGV 79k như sau:
+									<p>Chỉ áp dụng giao dịch mua vé 2D Standard và VIP của CGV
+										từ thứ 6 đến CN.</p>
+									<p>Không áp dụng các combo hoặc dịch vụ khác</p>
+									<p>Không áp dụng đồng thời các chương trình khuyến mãi khác
+										của MoMo và CGV</p>
+									Trong trường hợp bạn thoả điều kiện nhận ưu đãi trong thời gian
+									chương trình nhưng không được áp dụng, vui lòng liên hệ bộ phận
+									Chăm Sóc Khách Hàng của MoMo qua Hotline 1900 54 54 41 hoặc gửi
+									hỗ trợ tại mục Trợ Giúp trong VÍ CỦA TÔI tại ứng dụng MoMo để
+									được hỗ trợ.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item" style="width: 200%;">
+							<h2 class="accordion-header" id="flush-headingFour">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
+									aria-expanded="false" aria-controls="flush-collapseFour">
+									<strong>Tôi muốn hủy/thay đổi suất chiếu của CGV</strong>
+								</button>
+							</h2>
+							<div id="flush-collapseFour" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingFour"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">Hiện tại chính sách của CGV
+									chưa hỗ trợ hủy hoặc thay đổi thông vé đã thanh toán trên ứng
+									dụng MoMo. Vui lòng liên hệ trực tiếp CGV 1900 6017 để được hỗ
+									trợ thêm thông tin.</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-scrollable modal-lg">
+					<div class="modal-content">
+						<div class="modal-header mt-3">
+							<h2 class="modal-title" id="exampleModalLabel">Chọn địa điểm</h2>
+							<div class="shop__sidebar__search">
+								<form action="#">
+									<input type="text" placeholder="Search...">
+									<button type="submit">
+										<span class="icon_search"></span>
+									</button>
+								</form>
+							</div>
+						</div>
+						<form class="modal-body row ml-2">
+							<input type="submit" name="address" value="Hồ Chí Minh">
+							<input type="submit" name="address" value="Hà Nội">
+						</form>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="modal fade" id="exampleModal1" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg ">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title offset-lg-5" id="exampleModalLabel">Bản
+							đồ</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div id="map-container-google-1"
+							class="z-depth-1-half map-container"
+							style="height: 600px; width: 600px;">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d582.517144181984!2d106.66219695255259!3d10.834817967499722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529a786cb6d63%3A0x18bd509e1d3ad74a!2sGalaxy%20Cinema%20Quang%20Trung!5e0!3m2!1svi!2s!4v1690826031846!5m2!1svi!2s"
+								width="760" height="600" style="border: 0;" allowfullscreen=""
+								loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+	
+	<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="ShowtimeMovie/css/stle.css">
+	<script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
+	<script src="ShowtimeMovie/js/bootstrap.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.nice-select.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.nicescroll.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.magnific-popup.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.countdown.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.slicknav.js"></script>
+	<script src="ShowtimeMovie/js/mixitup.min.js"></script>
+	<script src="ShowtimeMovie/js/owl.carousel.min.js"></script>
+	<script src="ShowtimeMovie/js/main.js"></script>
+	<script src="ShowtimeMovie/js/jquery-2.1.0.min.js"></script>
+	<script src="ShowtimeMovie/js/bootstrap.bundle.min.js"></script>
+	<script src="ShowtimeMovie/js/angular-route.min.js"></script>
+	<script src="ShowtimeMovie/js/angular.min.js"></script>
+	<script src="ShowtimeMovie/js/jquery.min.js"></script>
+	<script src="ShowtimeMovie/js/popper.min.js"></script>
+	<script src="ShowtimeMovie/js/plugin.js"></script>
+
+	<!-- Bootstrap -->
+	<!-- javascript -->
+	<script src="ShowtimeMovie/js/owl.carousel.js"></script>
+	<script
+		src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<script src="ShowtimeMovie/jss/owl-carousel.js"></script>
+	<script src="ShowtimeMovie/jss/accordions.js"></script>
+	<script src="ShowtimeMovie/jss/datepicker.js"></script>
+	<script src="ShowtimeMovie/jss/scrollreveal.min.js"></script>
+	<script src="ShowtimeMovie/jss/waypoints.min.js"></script>
+	<script src="ShowtimeMovie/jss/jquery.counterup.min.js"></script>
+	<script src="ShowtimeMovie/jss/imgfix.min.js"></script>
+	<script src="ShowtimeMovie/jss/slick.js"></script>
+	<script src="ShowtimeMovie/jss/lightbox.js"></script>
+	<script src="ShowtimeMovie/jss/isotope.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	<script src="ShowtimeMovie/js/stle.js"></script>
+</main>
+
+</body>
+
+</html>

@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MaMaCinema {
-	@RequestMapping("/mamaCinema")
-	public String Cinema() {
-		return "showTimes/ShowtimeMovie";
+	@RequestMapping("/Home")
+	public String Home() {
+		return "";
 	}
 }

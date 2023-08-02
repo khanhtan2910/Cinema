@@ -50,6 +50,14 @@
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.24), 1px 1px 1px 1px
 		rgba(0, 0, 0, 0.19);
 }
+
+.map-container iframe {
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
 </style>
 </head>
 
@@ -68,10 +76,11 @@
         			$http.get(url).then(resp => {
 						var items = [];
             		 	items = resp.data;
-						var Address = "TP Hồ Chí Minh";
+						var Address = "Hồ Chí Minh";
 						 if(address!=''){
 							 Address  = address;
 						 }
+						document.getElementById("showAddress").innerHTML = Address;
 						for(let i of items){
 							if(i.address.includes(Address)){
 								$scope.cinemas.push(i);
@@ -147,48 +156,134 @@
 						<div class="card col-lg-6">
 							<div class=" p-2 row">
 								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
-								<button type="button" class="btn btn-outline-danger mr-2"
-									style="width: 150px; height: 40px;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">
+								<button type="button" class="btn btn-outline-danger mr-2 "
+									id="showAddress" style="width: 150px; height: 40px;"
+									data-bs-toggle="modal" data-bs-target="#exampleModal">
 									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
 								</button>
-								<button type="button" class="btn btn-outline-danger"
-									style="width: 150px; height: 40px;">
-									<i class="bi bi-cursor"></i> Gần Bạn
-								</button>
 							</div>
-							<div class="row p-2 ml-2">
-								<button type="button" class="btn btn-outline-light border"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
-								<button type="button" class="btn btn-outline-light border ml-2"
-									style="width: 50px;">
-									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
-										style="height: 100%; width: 100%;"></a>
-								</button>
+							<div class="p-2 ml-2 row " style="height: 100px;">
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/logoQT.png" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">Tất cả</h6>
+									</a>
 
+								</div>
+
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/CGVlogo.jpg" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">CGV</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/GLXlogo.webp" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 mt-1">Galaxy</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/LTlogo.webp" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">Lotte</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/BHDlogo.webp" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">BHD</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/logoQT.png" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">Beta</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/CineStarlogo.webp" alt=""></a> <a
+										href="" class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 mt-1">Cinesta</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/Megalogo.webp" alt=""></a> <a href=""
+										class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100 p-1">Mega GS</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/DcineLogo.webp" alt=""></a> <a
+										href="" class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100">DCINE</h6>
+									</a>
+
+								</div>
+								<div class=" col-sm-1 card border border-white"
+									style="height: 70px;">
+									<a href="#" class="card-header h-75 p-1 "
+										style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+										class="img-fuid w-100 h-100 m-0"
+										src="ShowtimeMovie/img/Cinemaxlogo.webp" alt=""></a> <a
+										href="" class="card-body p-0 border border-white">
+										<h6 style="color: rgb(245, 37, 134); font-size: small;"
+											class="w-100">Cinema</h6>
+									</a>
+
+								</div>
 							</div>
 							<div class="col-lg-12 row scrollbar" style="text-align: left;">
 								<div class=" border-top  shop__sidebar__search ">
@@ -199,27 +294,38 @@
 											<span class="icon_search"></span>
 										</button>
 									</form>
-									<div class="list-group mt-2 " ng-repeat="cinema in cinemas| filter:search">
-										<button class="list-group-item list-group-item-action "
-											style="height: 70px;">
-											<div class="row col-lg-12">
-												<div class="col-lg-2 " style="width: 70px;">
-													<a> <img class="img-thumbnail"
+									<form class="list-group mt-2 "
+										ng-repeat="cinema in cinemas| filter:search"
+										action="/cinemaWithAddress">
+										<div class="list-group-item list-group-item-action "
+											style="height: 80px;">
+											<button class="row col-lg-12" style="text-align: left;"
+												type="submit">
+												<div class="col-lg-2 "
+													style="width: 80px; height: 60px; margin-top: 9px;">
+													<img class="img-thumbnail"
 														src="ShowtimeMovie/img/logoQT.png" alt=""
-														style="height: 100%; width: 100%;"></a>
+														style="height: 100%; width: 100%;">
 												</div>
 												<div class="col-lg-8">
-													<h6>{{cinema.name}}</h6>
-													<p style="width: 100%">{{cinema.address}}</p>
+													<input name="cinemaId" value="{{cinema.cinemaid}}" hidden>
+													<h6>
+														<strong>{{cinema.name}}</strong>
+													</h6>
+													<p style="width: 100%; font-size: small">{{cinema.address}}</p>
 												</div>
-												<div class="col-lg-2 mt-3 "
-													style="text-align: right; font-size: large;">
-													<i class="bi bi-chevron-double-right"
-														style="margin-left: 200px;"></i>
+												<div class="col-lg-1 p-0 mt-4" style="text-align: right;">
+													<a href="" data-bs-toggle="modal"
+														data-bs-target="#exampleModal1">[Bản đồ] </a>
 												</div>
-											</div>
-										</button>
-									</div>
+												<div class="col-lg-1 mt-4" style="text-align: right;">
+													<i class="bi bi-chevron-compact-right"
+														style="margin-left: 150%; font-size: large;"></i>
+
+												</div>
+											</button>
+										</div>
+									</form>
 								</div>
 
 							</div>
@@ -227,22 +333,375 @@
 								aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-scrollable modal-lg">
 									<div class="modal-content">
-										<div class="modal-header mt-3">
+									<div class="p-0 offset-lg-11 mt-2"><button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button></div>
+										<div class="modal-header ">
 											<h2 class="modal-title" id="exampleModalLabel">Chọn địa
 												điểm</h2>
+
 											<div class="shop__sidebar__search">
-												<form action="#">
-													<input type="text" placeholder="Search...">
+												<form action="#" class="mt-5">
+													<input type="text" placeholder="Search..." style="width: 300px">
 													<button type="submit">
 														<span class="icon_search"></span>
 													</button>
 												</form>
 											</div>
 										</div>
-										<div class="modal-body row ml-2" action="/cinema">
-											<button style="width: 180px; height: 50px; margin-right:3px;" type="button" ng-click="searchAddress('Hồ Chí Minh')"  data-bs-dismiss="modal">Hồ Chí Minh</button>
-											<button	style="width: 180px; height: 50px;margin-right:3px;"  type="button"	ng-click="searchAddress('Hà Nội')" data-bs-dismiss="modal">Hà Nội</button>	
-											<button	style="width: 180px; height: 50px;margin-right:3px;"  type="button"	ng-click="searchAddress('Bình Dương')"  data-bs-dismiss="modal">Bình Dương</button>					
+										<div class="modal-body row ">
+											<table class="table h-50 border-white">
+												<tbody>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hồ Chí Minh')"
+																data-bs-dismiss="modal">Hồ Chí Minh</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hà Nội')"
+																data-bs-dismiss="modal">Hà Nội</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Đà Nẵng')"
+																data-bs-dismiss="modal">Đà Nẵng</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Cần Thơ')"
+																data-bs-dismiss="modal">Cần Thơ</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Đồng Tháp')"
+																data-bs-dismiss="modal">Đồng Tháp</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hải Phòng')"
+																data-bs-dismiss="modal">Hải Phòng</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hậu Giang')"
+																data-bs-dismiss="modal">Hậu Giang</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Kiên Giang')"
+																data-bs-dismiss="modal">Kiên Giang</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Sóc Trăng')"
+																data-bs-dismiss="modal">Sóc Trăng</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Tiền Giang')"
+																data-bs-dismiss="modal">Tiền Giang</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Trà Vinh')"
+																data-bs-dismiss="modal">Trà Vinh</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Đồng Nai')"
+																data-bs-dismiss="modal">Đồng Nai</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Lạng Sơn')"
+																data-bs-dismiss="modal">Lạng Sơn</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bình Dương')"
+																data-bs-dismiss="modal">Bình Dương</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('An Giang')"
+																data-bs-dismiss="modal">An Giang</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button"
+																ng-click="searchAddress('Bà Rịa-Vũng Tàu')"
+																data-bs-dismiss="modal">Bà Rịa-Vũng Tàu</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bắc Giang')"
+																data-bs-dismiss="modal">Bắc Giang</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bắc Kạn')"
+																data-bs-dismiss="modal">Bắc Kạn</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bạc Liêu')"
+																data-bs-dismiss="modal">Bạc Liêu</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bắc Ninh')"
+																data-bs-dismiss="modal">Bắc Ninh</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bến Tre')"
+																data-bs-dismiss="modal">Bến Tre</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bình Định')"
+																data-bs-dismiss="modal">Bình Định</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bình Phước')"
+																data-bs-dismiss="modal">Bình Phước</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Bình Thuận')"
+																data-bs-dismiss="modal">Bình Thuận</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Cà Mau')"
+																data-bs-dismiss="modal">Cà Mau</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Cao Bằng')"
+																data-bs-dismiss="modal">Cao Bằng</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Đắk Lắk')"
+																data-bs-dismiss="modal">Đắk Lắk</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Đắk Nông')"
+																data-bs-dismiss="modal">Đắk Nông</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Điện Biên')"
+																data-bs-dismiss="modal">Điện Biên</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Gia Lai')"
+																data-bs-dismiss="modal">Gia Lai</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hà Giang')"
+																data-bs-dismiss="modal">Hà Giang</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hà Nam')"
+																data-bs-dismiss="modal">Hà Nam</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hà Tĩnh')"
+																data-bs-dismiss="modal">Hà Tĩnh</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hải Dương')"
+																data-bs-dismiss="modal">Hải Dương</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hòa Bình')"
+																data-bs-dismiss="modal">Hòa Bình</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Hưng Yên')"
+																data-bs-dismiss="modal">Hưng Yên</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Kon Tum')"
+																data-bs-dismiss="modal">Khánh Hòa</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Lai Châu')"
+																data-bs-dismiss="modal">Lai Châu</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Lâm Đồng')"
+																data-bs-dismiss="modal">Lâm Đồng</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Kon Tum')"
+																data-bs-dismiss="modal">Kon Tum</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Lào Cai')"
+																data-bs-dismiss="modal">Lào Cai</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Long An')"
+																data-bs-dismiss="modal">Long An</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Nam Định')"
+																data-bs-dismiss="modal">Nam Định</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Nghệ An')"
+																data-bs-dismiss="modal">Nghệ An</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Ninh Bình')"
+																data-bs-dismiss="modal">Ninh Bình</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Ninh Thuận')"
+																data-bs-dismiss="modal">Ninh Thuận</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Phú Thọ')"
+																data-bs-dismiss="modal">Phú Thọ</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Quảng Bình')"
+																data-bs-dismiss="modal">Quảng Bình</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Phú Yên')"
+																data-bs-dismiss="modal">Phú Yên</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Quảng Nam')"
+																data-bs-dismiss="modal">Quảng Nam</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Quảng Ngãi')"
+																data-bs-dismiss="modal">Quảng Ngãi</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Kon Tum')"
+																data-bs-dismiss="modal">Quảng Ninh</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Quảng Trị')"
+																data-bs-dismiss="modal">Quảng Trị</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Sơn La')"
+																data-bs-dismiss="modal">Sơn La</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Tây Ninh')"
+																data-bs-dismiss="modal">Tây Ninh</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Thái Bình')"
+																data-bs-dismiss="modal">Thái Bình</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Thái Nguyên')"
+																data-bs-dismiss="modal">Thái Nguyên</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Thanh Hóa')"
+																data-bs-dismiss="modal">Thanh Hóa</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Thừa Thiên Huế')"
+																data-bs-dismiss="modal">Thừa Thiên Huế</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Tuyên Quang')"
+																data-bs-dismiss="modal">Tuyên Quang</button></td>
+													</tr>
+													<tr>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Vĩnh Long')"
+																data-bs-dismiss="modal">Vĩnh Long</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Vĩnh Phúc')"
+																data-bs-dismiss="modal">Vĩnh Phúc</button></td>
+														<td><button
+																style="width: 180px; height: 50px; margin-right: 3px;"
+																class="list-group-item list-group-item-action"
+																type="button" ng-click="searchAddress('Yên Bái')"
+																data-bs-dismiss="modal">Yên Bái</button></td>
+
+													</tr>
+												</tbody>
+											</table>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
@@ -257,7 +716,156 @@
 				</div>
 			</div>
 		</section>
+		<h1 style="text-align: center; color: rgb(240, 17, 154);">
+			<strong> Phim đang chiếu </strong>
+		</h1>
+		<section class="Am-img-slider-container" >
+			<div class="swiper blog-slider" >
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
 
+							<img class="back-image" alt="" src="ShowtimeMovie/img/Conan.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="ShowtimeMovie/img/Conan.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">Thám tử
+								lừng danh Conan 26 : Tàu Ngầm Sắt Màu Đen</h2>
+							<p class="blog-slider__text">Hoạt hình,hình sự,bí ẩn,hành
+								động</p>
+							<span class="blog-slider__rate"> IMDB 9.4/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Endless Love 2014</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Atque, illum odit? Odit ipsum enim
+								sapiente eius, ad numqure.</p>
+							<span class="blog-slider__rate"> IMDB 7.5/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">endless 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Underwater 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image  blog-slider__backimg" alt=""
+								src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
+								<div class="overly">
+									<a href="#" title="-3"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Mulan 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
 		<h2 style="color: rgb(233, 64, 148); text-align: center;" class="mb-3">
 			<strong>Tìm rạp chiếu phim Mama</strong>
 		</h2>
@@ -269,8 +877,8 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/CGV}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/CGVlogo.jpg" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
@@ -284,8 +892,8 @@
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
+
 						</div>
 					</div>
 				</button>
@@ -293,22 +901,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/Beta}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/LTlogo.png" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Lotte Cinema</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Hệ thống rạp phim từ Hàn Quốc</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -318,22 +925,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/Galaxy Cinema}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/GLXlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Galaxy Cinema</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Mang Hollywood đến gần bạn</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -343,22 +949,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/BHD Star}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/BHDlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">BHD Star</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Hệ thống rạp chiếu phim hiện đại</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -368,22 +973,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
+							<a th:href="@{/BHD Star}"><img class="img-thumbnail"
 								src="ShowtimeMovie/img/logoQT.png" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Beta Cinemas</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Rạp chiếu phim Beta Cinemas</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -393,22 +997,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/Cinestar}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/Cinestarlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Cinestar</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Hệ thống rạp phim giá rẻ,hiện đại bậc nhất</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -418,22 +1021,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/Mega GS}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/Megalogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Mega GS</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Hệ thống rạp chiếu phim tiêu chuẩn quốc tế tại Việt Nam</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -443,22 +1045,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/DCINE}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/DcineLogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">DCINE</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Rạp chiếu phim DCINE</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -468,22 +1069,21 @@
 					style="height: 150px; width: 430px;">
 					<div class="row col-lg-12">
 						<div class="col-lg-3 ">
-							<a href="#"><img class="img-thumbnail"
-								src="ShowtimeMovie/img/logoQT.png" alt=""
+							<a th:href="@{/Cinemax}"><img class="img-thumbnail"
+								src="ShowtimeMovie/img/Cinemaxlogo.webp" alt=""
 								style="height: 60%; width: 100%; margin-top: 20px;"></a>
 						</div>
 						<div class="col-lg-9" style="text-align: left;">
 							<h5>
-								<strong style="color: rgb(245, 11, 167);">CGV</strong>
+								<strong style="color: rgb(245, 11, 167);">Cinemax</strong>
 							</h5>
-							<p>Hệ thống rạp phim lớn nhất Việt Nam</p>
+							<p>Rạp chiếu phim đạt chuẩn quốc gia</p>
 							<p>
 								<i class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i><i
 									class="bi bi-star-fill" style="color: rgb(196, 196, 19);"></i>
-								1740 đánh giá
 							</p>
 						</div>
 					</div>
@@ -596,8 +1196,38 @@
 				</div>
 				<div class="col-lg-2"></div>
 			</div>
+			<div class="modal fade" id="exampleModal1" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg ">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title offset-lg-5" id="exampleModalLabel">Bản
+								đồ</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div id="map-container-google-1"
+								class="z-depth-1-half map-container"
+								style="height: 600px; width: 600px;">
+								<iframe
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.885881777047!2d106.61032627575189!3d10.743277759802854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752dcec1b9cb21%3A0xc76983f1bcfd1227!2sCGV%20Aeon%20Mall%20B%C3%ACnh%20T%C3%A2n!5e0!3m2!1svi!2s!4v1690734921208!5m2!1svi!2s"
+									width="770" height="600" allowfullscreen="" loading="lazy"
+									referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 		</section>
-
+		<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="ShowtimeMovie/css/stle.css">
+		<link rel="stylesheet"
+			href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
 		<script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
 		<script src="ShowtimeMovie/js/bootstrap.min.js"></script>
 		<script src="ShowtimeMovie/js/jquery.nice-select.min.js"></script>
@@ -631,6 +1261,8 @@
 		<script src="ShowtimeMovie/jss/slick.js"></script>
 		<script src="ShowtimeMovie/jss/lightbox.js"></script>
 		<script src="ShowtimeMovie/jss/isotope.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+		<script src="ShowtimeMovie/js/stle.js"></script>
 	</main>
 
 

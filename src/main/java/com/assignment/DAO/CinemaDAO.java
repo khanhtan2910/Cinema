@@ -15,4 +15,9 @@ public interface CinemaDAO extends JpaRepository<Cinema, Integer>{
 	
 	@Query("SELECT o FROM Cinema o WHERE  o.address LIKE CONCAT('%',?1,'%')")
 	List<Cinema> findByAddress( String address);
+	
+	@Query("SELECT o FROM Cinema o WHERE  o.name LIKE CONCAT('%',?1,'%')")
+	List<Cinema> findByName( String name);
+	@Query("SELECT o FROM Cinema o WHERE  o.company LIKE CONCAT('%',?1,'%')")
+	List<Cinema> findByCompany( String cinemaCompany);
 }

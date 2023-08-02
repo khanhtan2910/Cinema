@@ -20,6 +20,12 @@ public interface CinemaService {
 
 	List<Cinema> findByAddress(String address);
 
+	List<Cinema> findByName(String cinemaName);
+
+	List<Cinema> findByCompany(String cinemaCompany);
+
+	
+
 	
 
 }

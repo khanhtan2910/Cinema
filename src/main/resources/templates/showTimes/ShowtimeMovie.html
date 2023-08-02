@@ -19,12 +19,19 @@
 	<link rel="stylesheet" href="ShowtimeMovie/csss/templatemo-hexashop.css">
 	<link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
 
+<<<<<<< HEAD
 	<link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+=======
+<link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 </head>
 
 <body>
 
 	<main>
+<<<<<<< HEAD
 		<script>//click controls moves a set amount per click
 $("#waterStart").click(function(){
   setTimeout($("#waterPictures").animate( { scrollLeft: '-=500' }, 100),100);
@@ -93,13 +100,46 @@ $('#fireEnd').on('mouseenter', function() {
 }).on('mouseleave', function(){
     this.iid && clearInterval(this.iid);
 });</script>
+=======
+		<script type="text/javascript">
+			let host = "http://localhost:8080/rest/cinemas";
+			const app = angular.module("app",[]);
+				app.controller("ctrl",function($scope,$http){
+				
+    			$scope.cinemas = [];
+    
+				$scope.searchAddress = function(address){
+					$scope.cinemas = [];
+					var url=`${host}`;
+        			$http.get(url).then(resp => {
+						var items = [];
+            		 	items = resp.data;
+						var Address = "Hồ Chí Minh";
+						 if(address!=''){
+							 Address  = address;
+						 }
+						document.getElementById("showAddress").innerHTML = Address;
+						for(let i of items){
+							if(i.address.includes(Address)){
+								$scope.cinemas.push(i);
+								console.log("Success",resp);
+							};
+						}
+        			}).catch(error => {
+            			console.log("Error",error)
+       		 		});					
+				}   
+    		$scope.searchAddress('');
+		});
+		</script>
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 		<script>
 			function setBgColor(index) {
 				for (let count = 1; count < 8; count++) {
 					document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
 					document.getElementById("ngaychieu" + count).style.color = "black";
 					document.getElementById("ngauchieuduoi" + count).style.color = "black";
-					document.getElementById("ngaychieungoai" + count).style.borderColor = "black";
+					document.getElementById("ngaychieungoai" + count).style.borderColor = "#C0C0C0";
 				}
 				document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
 				document.getElementById("ngaychieu" + index).style.color = "white";
@@ -159,7 +199,7 @@ $('#fireEnd').on('mouseenter', function() {
 				</div>
 			</div>
 		</section>
-		<section>
+		<section ng-app="app" ng-controller="ctrl">
 			<div class="shop-details">
 				<div class="product__details__pic">
 					<h2 style="color: rgb(233, 64, 148);" class="mb-3">
@@ -172,15 +212,385 @@ $('#fireEnd').on('mouseenter', function() {
 								<h4 class="p-1" style="width: 110px;">Vị trí</h4>
 								<button type="button" class="btn btn-outline-danger mr-2"
 									style="width: 150px; height: 40px;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">
+									data-bs-target="#exampleModal" id="showAddress">
 									<i class="bi bi-geo-alt"></i> Hồ Chí Minh
 								</button>
-								<button type="button" class="btn btn-outline-danger"
-									style="width: 150px; height: 40px;">
-									<i class="bi bi-cursor"></i> Gần Bạn
-								</button>
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-scrollable modal-lg">
+										<div class="modal-content">
+											<div class="modal-header mt-3">
+												<h3 class="modal-title ml-3" id="exampleModalLabel" style="font-family:inherit;">Chọn địa
+													điểm</h2>
+												
+											</div>
+											<div class="modal-body row">
+												<table class="table h-50 border-white">
+													<tbody>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hồ Chí Minh')"
+																	data-bs-dismiss="modal">Hồ Chí Minh</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hà Nội')"
+																	data-bs-dismiss="modal">Hà Nội</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Đà Nẵng')"
+																	data-bs-dismiss="modal">Đà Nẵng</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Cần Thơ')"
+																	data-bs-dismiss="modal">Cần Thơ</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Đồng Tháp')"
+																	data-bs-dismiss="modal">Đồng Tháp</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hải Phòng')"
+																	data-bs-dismiss="modal">Hải Phòng</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hậu Giang')"
+																	data-bs-dismiss="modal">Hậu Giang</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Kiên Giang')"
+																	data-bs-dismiss="modal">Kiên Giang</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Sóc Trăng')"
+																	data-bs-dismiss="modal">Sóc Trăng</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Tiền Giang')"
+																	data-bs-dismiss="modal">Tiền Giang</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Trà Vinh')"
+																	data-bs-dismiss="modal">Trà Vinh</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Đồng Nai')"
+																	data-bs-dismiss="modal">Đồng Nai</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Lạng Sơn')"
+																	data-bs-dismiss="modal">Lạng Sơn</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bình Dương')"
+																	data-bs-dismiss="modal">Bình Dương</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('An Giang')"
+																	data-bs-dismiss="modal">An Giang</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button"
+																	ng-click="searchAddress('Bà Rịa-Vũng Tàu')"
+																	data-bs-dismiss="modal">Bà Rịa-Vũng Tàu</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bắc Giang')"
+																	data-bs-dismiss="modal">Bắc Giang</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bắc Kạn')"
+																	data-bs-dismiss="modal">Bắc Kạn</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bạc Liêu')"
+																	data-bs-dismiss="modal">Bạc Liêu</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bắc Ninh')"
+																	data-bs-dismiss="modal">Bắc Ninh</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bến Tre')"
+																	data-bs-dismiss="modal">Bến Tre</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bình Định')"
+																	data-bs-dismiss="modal">Bình Định</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bình Phước')"
+																	data-bs-dismiss="modal">Bình Phước</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Bình Thuận')"
+																	data-bs-dismiss="modal">Bình Thuận</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Cà Mau')"
+																	data-bs-dismiss="modal">Cà Mau</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Cao Bằng')"
+																	data-bs-dismiss="modal">Cao Bằng</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Đắk Lắk')"
+																	data-bs-dismiss="modal">Đắk Lắk</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Đắk Nông')"
+																	data-bs-dismiss="modal">Đắk Nông</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Điện Biên')"
+																	data-bs-dismiss="modal">Điện Biên</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Gia Lai')"
+																	data-bs-dismiss="modal">Gia Lai</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hà Giang')"
+																	data-bs-dismiss="modal">Hà Giang</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hà Nam')"
+																	data-bs-dismiss="modal">Hà Nam</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hà Tĩnh')"
+																	data-bs-dismiss="modal">Hà Tĩnh</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hải Dương')"
+																	data-bs-dismiss="modal">Hải Dương</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hòa Bình')"
+																	data-bs-dismiss="modal">Hòa Bình</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Hưng Yên')"
+																	data-bs-dismiss="modal">Hưng Yên</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Kon Tum')"
+																	data-bs-dismiss="modal">Khánh Hòa</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Lai Châu')"
+																	data-bs-dismiss="modal">Lai Châu</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Lâm Đồng')"
+																	data-bs-dismiss="modal">Lâm Đồng</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Kon Tum')"
+																	data-bs-dismiss="modal">Kon Tum</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Lào Cai')"
+																	data-bs-dismiss="modal">Lào Cai</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Long An')"
+																	data-bs-dismiss="modal">Long An</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Nam Định')"
+																	data-bs-dismiss="modal">Nam Định</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Nghệ An')"
+																	data-bs-dismiss="modal">Nghệ An</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Ninh Bình')"
+																	data-bs-dismiss="modal">Ninh Bình</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Ninh Thuận')"
+																	data-bs-dismiss="modal">Ninh Thuận</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Phú Thọ')"
+																	data-bs-dismiss="modal">Phú Thọ</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Quảng Bình')"
+																	data-bs-dismiss="modal">Quảng Bình</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Phú Yên')"
+																	data-bs-dismiss="modal">Phú Yên</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Quảng Nam')"
+																	data-bs-dismiss="modal">Quảng Nam</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Quảng Ngãi')"
+																	data-bs-dismiss="modal">Quảng Ngãi</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Kon Tum')"
+																	data-bs-dismiss="modal">Quảng Ninh</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Quảng Trị')"
+																	data-bs-dismiss="modal">Quảng Trị</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Sơn La')"
+																	data-bs-dismiss="modal">Sơn La</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Tây Ninh')"
+																	data-bs-dismiss="modal">Tây Ninh</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Thái Bình')"
+																	data-bs-dismiss="modal">Thái Bình</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Thái Nguyên')"
+																	data-bs-dismiss="modal">Thái Nguyên</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Thanh Hóa')"
+																	data-bs-dismiss="modal">Thanh Hóa</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button"
+																	ng-click="searchAddress('Thừa Thiên Huế')"
+																	data-bs-dismiss="modal">Thừa Thiên Huế</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Tuyên Quang')"
+																	data-bs-dismiss="modal">Tuyên Quang</button></td>
+														</tr>
+														<tr>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Vĩnh Long')"
+																	data-bs-dismiss="modal">Vĩnh Long</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Vĩnh Phúc')"
+																	data-bs-dismiss="modal">Vĩnh Phúc</button></td>
+															<td><button
+																	style="width: 180px; height: 50px; margin-right: 3px;"
+																	class="list-group-item list-group-item-action"
+																	type="button" ng-click="searchAddress('Yên Bái')"
+																	data-bs-dismiss="modal">Yên Bái</button></td>
+
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="row p-2 ml-2">
+<<<<<<< HEAD
 								<button type="button" class="btn btn-outline-light border" style="width: 50px;">
 									<a href="#"><img src="ShowtimeMovie/img/logoQT.png" alt=""
 											style="height: 100%; width: 100%;"></a>
@@ -215,9 +625,130 @@ $('#fireEnd').on('mouseenter', function() {
 											<span class="icon_search"></span>
 										</button>
 									</form>
+=======
+								<div class="p-2 ml-2 row " style="height: 100px;">
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/logoQT.png" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">Tất cả</h6>
+										</a>
 
-									<div class="list-group mt-2 ">
+									</div>
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/CGVlogo.jpg" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">CGV</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/GLXlogo.webp" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 mt-1">Galaxy</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/LTlogo.webp" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">Lotte</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/BHDlogo.webp" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">BHD</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/logoQT.png" alt=""></a> <a href=""
+											class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">Beta</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/CineStarlogo.webp" alt=""></a> <a
+											href="" class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 mt-1">Cinesta</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/Megalogo.webp" alt=""></a> <a
+											href="" class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100 p-1">Mega GS</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/DcineLogo.webp" alt=""></a> <a
+											href="" class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100">DCINE</h6>
+										</a>
+
+									</div>
+									<div class=" col-sm-1 card border border-white"
+										style="height: 70px;">
+										<a href="#" class="card-header h-75 p-1 "
+											style="border: 1px solid rgb(235, 5, 101); border-radius: 5px;"><img
+											class="img-fuid w-100 h-100 m-0"
+											src="ShowtimeMovie/img/Cinemaxlogo.webp" alt=""></a> <a
+											href="" class="card-body p-0 border border-white">
+											<h6 style="color: rgb(245, 37, 134); font-size: small;"
+												class="w-100">Cinema</h6>
+										</a>
+
+<<<<<<< HEAD
 										<button type="button" class="list-group-item list-group-item-action">
 											<div class="row col-lg-12">
 												<div class="col-lg-3 ">
@@ -425,9 +956,219 @@ $('#fireEnd').on('mouseenter', function() {
 													<div class="col-lg-3">
 														<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg" alt=""
 															style="width: 100%; height: 100%;">
-													</div>
-													<div class="col-lg-9 down-content">
+=======
+									</div>
+								</div>
+								<div class="col-lg-12 row" style="text-align: left;">
+									<div
+										class="col-lg-4 border-top border-end shop__sidebar__search ">
+										<form action="#" class="mt-1">
+											<input type="text" placeholder="Tìm kiếm theo tên"
+												ng-model="search">
 
+										</form>
+
+										<div class="list-group mt-2 "
+											ng-repeat="cinema in cinemas| filter:search">
+
+											<button type="button"
+												class="list-group-item list-group-item-action">
+												<div class="row col-lg-12">
+													<div class="col-lg-3 ">
+														<a href="#"><img class="img-thumbnail"
+															src="ShowtimeMovie/img/logoQT.png" alt=""
+															style="height: 100%; width: 100%;"></a>
+													</div>
+													<div class="col-lg-7">
+														<input name="cinemaId" value="{{cinema.cinemaid}}" hidden>
+														<h6 class="mt-3">{{cinema.name}}</h6>
+													</div>
+													<div class="col-lg-2 mt-3 " style="text-align: right;">
+														<i class="bi bi-chevron-double-right"
+															style="margin-left: 60px;"></i>
+													</div>
+												</div>
+											</button>
+
+										</div>
+									</div>
+									<div class="col-lg-8 border-top">
+										<div class=" col-lg-12 row mt-2">
+											<div class="col-lg-1 ">
+												<a href="#"><img class="img-thumbnail"
+													src="ShowtimeMovie/img/logoQT.png" alt=""
+													style="height: 60%; width: 100%;"></a>
+											</div>
+											<div class="col-lg-11">
+												<a href="#" style="color: black;">Lịch chiếu phim</a>
+												<p>tầng 5 tòa nhà gì đó</p>
+											</div>
+										</div>
+										<div class="row mt-1 ml-2">
+											<button id="ngaychieungoai1" type="button"
+												class=" mr-2 card text-center p-0 "
+												style="width: 11%; border-color: #FF0099;"
+												onclick="setBgColor(1)">
+												<div id="ngaychieu1"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: #FF0099; color: white;"
+													th:text="${dayOfWeek}"></div>
+												<div id="ngauchieuduoi1"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small; color: #FF0099;">Hôm nay</div>
+											</button>
+											<button id="ngaychieungoai2" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(2)">
+												<div id="ngaychieu2"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+1"></div>
+												<div id="ngauchieuduoi2"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[1]}"></div>
+											</button>
+											<button id="ngaychieungoai3" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(3)">
+												<div id="ngaychieu3"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+2">21</div>
+												<div id="ngauchieuduoi3"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[2]}">Hôm
+													nay</div>
+											</button>
+											<button id="ngaychieungoai4" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(4)">
+												<div id="ngaychieu4"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+3">21</div>
+												<div id="ngauchieuduoi4"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[3]}">Hôm
+													nay</div>
+											</button>
+											<button id="ngaychieungoai5" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(5)">
+												<div id="ngaychieu5"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+4">21</div>
+												<div id="ngauchieuduoi5"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[4]}">Hôm
+													nay</div>
+											</button>
+											<button id="ngaychieungoai6" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(6)">
+												<div id="ngaychieu6"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+5">21</div>
+												<div id="ngauchieuduoi6"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[5]}">Hôm
+													nay</div>
+											</button>
+											<button id="ngaychieungoai7" type="button"
+												class=" mr-2 card text-center p-0 " style="width: 11%;"
+												onclick="setBgColor(7)">
+												<div id="ngaychieu7"
+													class="card-header text-center p-1 w-100 "
+													style="font-size: larger; background-color: rgb(236, 234, 234);"
+													th:text="${dayOfWeek}+6">21</div>
+												<div id="ngauchieuduoi7"
+													class="card-footer text-center p-2 w-100 bg-white"
+													style="font-size: small;" th:text="${days[6]}">Hôm
+													nay</div>
+											</button>
+
+										</div>
+										<div class="card-body border-top mt-1 p-0 scrollbar">
+											<div class="shop__sidebar__categories">
+												<ul class="">
+													<div class="card-body col-lg-12 row">
+														<div class="col-lg-3">
+															<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+																alt="" style="width: 100%; height: 100%;">
+														</div>
+														<div class="col-lg-9 down-content">
+
+															<h6>
+																<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+															</h6>
+															<span>Phiêu lưu,Gây Cấn Hành Động</span>
+															<h6 class="mt-3">
+																<strong>2D Phụ Đề</strong>
+															</h6>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+														</div>
+
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
+													</div>
+													<hr>
+													<div class="card-body col-lg-12 row">
+														<div class="col-lg-3">
+															<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+																alt="" style="width: 100%; height: 100%;">
+														</div>
+														<div class="col-lg-9 down-content">
+
+															<h6>
+																<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+															</h6>
+															<span>Phiêu lưu,Gây Cấn Hành Động</span>
+															<h6 class="mt-3">
+																<strong>2D Phụ Đề</strong>
+															</h6>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+														</div>
+
+ HEAD
 														<h6>
 															<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
 														</h6>
@@ -451,8 +1192,47 @@ $('#fireEnd').on('mouseenter', function() {
 															style="width: 150px;">
 															<strong>23:20</strong>~02:05
 														</button>
+=======
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 													</div>
+													<hr>
+													<div class="card-body col-lg-12 row">
+														<div class="col-lg-3">
+															<img src="ShowtimeMovie/img/shopping-cart/cart-1.jpg"
+																alt="" style="width: 100%; height: 100%;">
+														</div>
+														<div class="col-lg-9 down-content">
 
+															<h6>
+																<strong>Nhiệm Vụ Bất Khả Thi 7:Nghiệp Báo</strong>
+															</h6>
+															<span>Phiêu lưu,Gây Cấn Hành Động</span>
+															<h6 class="mt-3">
+																<strong>2D Phụ Đề</strong>
+															</h6>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+															<button type="button"
+																class="btn btn-outline-info mr-2 mt-1"
+																style="width: 150px;">
+																<strong>23:20</strong>~02:05
+															</button>
+														</div>
+
+<<<<<<< HEAD
 												</div>
 												<hr>
 												<div class="card-body col-lg-12 row">
@@ -523,16 +1303,20 @@ $('#fireEnd').on('mouseenter', function() {
 
 												</div>
 											</ul>
+=======
+													</div>
+												</ul>
+											</div>
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 										</div>
 									</div>
 								</div>
-							</div>
 
+							</div>
 						</div>
+						<div class="col-lg-2"></div>
 					</div>
-					<div class="col-lg-2"></div>
 				</div>
-			</div>
 			</div>
 		</section>
 		
@@ -624,6 +1408,7 @@ $('#fireEnd').on('mouseenter', function() {
 				<div class="col-lg-2"></div>
 			</div>
 		</section>
+<<<<<<< HEAD
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable modal-lg">
 				<div class="modal-content">
@@ -660,6 +1445,10 @@ $('#fireEnd').on('mouseenter', function() {
 			</div>
 		</div>
 		</div>
+=======
+
+
+>>>>>>> 568bb81984d3366a76d91040ed64aaa1a7ba1a33
 	</main>
 
 
