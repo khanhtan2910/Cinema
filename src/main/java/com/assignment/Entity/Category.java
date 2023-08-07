@@ -29,7 +29,7 @@ public class Category implements Serializable{
 	Integer categoryid;
 	String name;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Createdat")
+	@Column(name = "Createat")
 	Date createAt = new Date();
 	
 	@OneToMany(mappedBy = "category")

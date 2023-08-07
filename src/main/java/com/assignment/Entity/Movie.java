@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -35,7 +37,7 @@ public class Movie implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Updateat")
 	Date updateAt = new Date();
-	double imdb;	
+	Double imdb;	
 	String region;
 	Boolean isdeleted;
 	String description;
@@ -45,7 +47,7 @@ public class Movie implements Serializable {
 	@Column(name = "Time")
 	Date time = new Date();
 	Boolean has2d;
-	boolean has3d;
+	Boolean has3d;
 	Integer filmlength;
 	@OneToMany(mappedBy = "movie")
 	@JsonIgnore
@@ -53,7 +55,7 @@ public class Movie implements Serializable {
 	@OneToMany(mappedBy = "movie")
 	@JsonIgnore
 	List<FilmMaking> filmMakings;
-	@OneToMany(mappedBy = "movie")
+	@OneToMany(mappedBy = "movie" , fetch = jakarta.persistence.FetchType.EAGER)
 	@JsonIgnore
 	List<MovieType> movieTypes;
 }

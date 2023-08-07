@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class Users implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	String userid;
+	Integer userid;
 	String password;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Dayofbirth")

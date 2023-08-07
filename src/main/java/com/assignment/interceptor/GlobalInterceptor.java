@@ -22,7 +22,7 @@ public class GlobalInterceptor implements HandlerInterceptor{
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
-//		request.setAttribute("category", categoryService.findAll());
-//		request.setAttribute("cinemas", cinemaService.findAll());
+		request.setAttribute("categories", categoryService.findAll()); 
+
 	}
 }
