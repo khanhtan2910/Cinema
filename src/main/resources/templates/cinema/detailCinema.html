@@ -36,22 +36,7 @@
 
 <body>
 	<main>
-
-		<script>
-			function setBgColor(index) {
-				for (let count = 1; count < 8; count++) {
-					document.getElementById("ngaychieu" + count).style.backgroundColor = "#EEEEEE";
-					document.getElementById("ngaychieu" + count).style.color = "black";
-					document.getElementById("ngauchieuduoi" + count).style.color = "black";
-					document.getElementById("ngaychieungoai" + count).style.borderColor = "#C0C0C0";
-				}
-				document.getElementById("ngaychieu" + index).style.backgroundColor = "#FF0099";
-				document.getElementById("ngaychieu" + index).style.color = "white";
-				document.getElementById("ngauchieuduoi" + index).style.color = "#FF0099";
-				document.getElementById("ngaychieungoai" + index).style.borderColor = "#FF0099";
-
-			}
-		</script>
+		<script type="text/javascript" src="ShowTimeMovie/js/showTime-app.js"></script>
 		<section class="breadcrumb-option">
 			<div class="container">
 				<div class="row">
@@ -172,7 +157,7 @@
 												th:text="${dayOfWeek}"></div>
 											<div id="ngauchieuduoi1"
 												class="card-footer text-center p-2 w-100 bg-white"
-												style="font-size: small; color: #FF0099;">Hôm nay</div>
+												style="font-size: small; color: #FF0099;">Today</div>
 										</button>
 										<button id="ngaychieungoai2" type="button"
 											class=" mr-2 card text-center p-0 " style="width:11%;"

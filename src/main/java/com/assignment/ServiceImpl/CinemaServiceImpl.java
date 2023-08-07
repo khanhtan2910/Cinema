@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.assignment.DAO.CinemaDAO;
 import com.assignment.Entity.Cinema;
+import com.assignment.Entity.Room;
 import com.assignment.Service.CinemaService;
 
 @Service
@@ -66,6 +67,12 @@ public class CinemaServiceImpl implements CinemaService{
 	public List<Cinema> findByCompany(String cinemaCompany) {
 		// TODO Auto-generated method stub
 		return cinemaDAO.findByCompany(cinemaCompany);
+	}
+
+	@Override
+	public List<Room> findRoomsByCinemaId(Integer cinemaId) {
+		// TODO Auto-generated method stub
+		return cinemaDAO.findById(cinemaId).get().getRooms();
 	}
 
 	

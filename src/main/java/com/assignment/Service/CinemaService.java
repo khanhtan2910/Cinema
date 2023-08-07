@@ -3,6 +3,7 @@ package com.assignment.Service;
 import java.util.List;
 
 import com.assignment.Entity.Cinema;
+import com.assignment.Entity.Room;
 
 public interface CinemaService {
 
@@ -23,6 +24,8 @@ public interface CinemaService {
 	List<Cinema> findByName(String cinemaName);
 
 	List<Cinema> findByCompany(String cinemaCompany);
+
+	List<Room> findRoomsByCinemaId(Integer cinemaId);
 
 	
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.Entity.Cinema;
+import com.assignment.Entity.Room;
 import com.assignment.Service.CinemaService;
 
 import ch.qos.logback.core.model.Model;
@@ -34,9 +35,17 @@ public class CinemaRestController {
 		}
 		return ResponseEntity.ok(cinemaService.findById(cinemaId));
 	}
-	@GetMapping("/rest/cinemas/address")
-	public ResponseEntity<List<Cinema>> getAny(@RequestBody String address) {		
-		return ResponseEntity.ok(cinemaService.findByAddress(address));
+	@GetMapping("/rest/cinema/rooms/{cinemaId}")
+	public ResponseEntity<List<Room>> getCinemaRooms(@PathVariable("cinemaId") Integer cinemaId) {
+		if (!cinemaService.existsById(cinemaId)) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(cinemaService.findRoomsByCinemaId(cinemaId));
+	}
+	
+	@GetMapping("/rest/cinemas/company/{company}")
+	public ResponseEntity<List<Cinema>> getWithCompany(@PathVariable("company") String company) {		
+		return ResponseEntity.ok(cinemaService.findByCompany(company));
 	}
 	@PostMapping("/rest/cinemas")
 	public ResponseEntity<Cinema> post(@RequestBody Cinema cinema){

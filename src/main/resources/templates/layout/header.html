@@ -32,27 +32,23 @@
                 <div class="col-lg-7 col-md-7">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class=""><a th:href="@{/Showtime}">Lịch chiếu<i class="arrow_carrot-down"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">Phim đang chiếu</a></li>
-                                    <li><a href="./shop-details.html">Phim sắp chiếu</a></li>
-
-                                </ul>
+                            <li class=""><a th:href="@{/Showtime}">Lịch chiếu</a>
+                                
                             </li>
                             <li><a th:href="@{/cinema}">Rạp chiếu<i class="arrow_carrot-down"></i></a>
                                 <ul class="dropdown">
-                                    <li><a href="/detailCinema">CGV</a></li>
-                                    <li><a href="./shop-details.html">Lotte Cinema</a></li>
-                                    <li><a href="./shopping-cart.html">BHD Star</a></li>
-                                    <li><a href="./checkout.html">Galaxy Cinema</a></li>
-                                    <li><a href="./blog-details.html">Beta Cinemas</a></li>
-                                    <li><a href="./blog-details.html">Cinestar</a></li>
-                                    <li><a href="./blog-details.html">DCINE</a></li>
-                                    <li><a href="./blog-details.html">Mega GS</a></li>
-                                    <li><a href="./blog-details.html">Cinemax</a></li>
+                                    <li ><a class="hover" th:href="@{/CGV}" style="font-weight: bold;color: #222222">CGV</a></li>
+                                    <li><a class="hover" th:href="@{/Lotte}" style="font-weight: bold;color: #222222">Lotte Cinema</a></li>
+                                    <li><a class="hover" th:href="@{/BHD}" style="font-weight: bold;color: #222222">BHD Star</a></li>
+                                    <li><a class="hover" th:href="@{/Galaxy}" style="font-weight: bold;color: #222222">Galaxy Cinema</a></li>
+                                    <li><a class="hover" th:href="@{/Beta}" style="font-weight: bold;color: #222222">Beta Cinemas</a></li>
+                                    <li><a class="hover" th:href="@{/Cinestar}" style="font-weight: bold;color: #222222">Cinestar</a></li>
+                                    <li><a class="hover" th:href="@{/DCINE}" style="font-weight: bold;color: #222222">DCINE</a></li>
+                                    <li><a class="hover" th:href="@{/Mega}" style="font-weight: bold;color: #222222">Mega GS</a></li>
+                                    <li><a class="hover" th:href="@{/Cinemax}" style="font-weight: bold;color: #222222">Cinemax</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Phim chiếu</a>
+                            <li><a href="/MovieScreenings">Phim chiếu</a>
 
                             </li>
                             <li><a href="/Topfilm">Top phim</a></li>

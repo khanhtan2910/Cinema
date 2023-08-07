@@ -26,8 +26,6 @@ public class Room implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer roomid;
 	String name;
-	Integer column;
-	Integer row;
 	String type;
 	@OneToMany(mappedBy = "room")
 	@JsonIgnore

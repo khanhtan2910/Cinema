@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MovieScreeningsController {	
 	@RequestMapping("/MovieScreenings")
 		public String MovieScreenings() {
-			return "PhimChieu/index";
+			return "movieScreenings/movie";
 		}
 	}

@@ -81,7 +81,10 @@ p {
 	line-height: 25px;
 	margin: 0 0 15px 0;
 }
-
+.hover:hover{
+	background-color: #fff2f2;
+	color: #ff55c8;
+}
 img {
 	max-width: 100%;
 }

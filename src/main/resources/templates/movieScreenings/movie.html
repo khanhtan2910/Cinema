@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet"
+	href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
+<link rel="stylesheet" href="ShowtimeMovie/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/magnific-popup.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="ShowtimeMovie/css/style.css"
+	type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="ShowtimeMovie/csss/font-awesome.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/templatemo-hexashop.css">
+<link rel="stylesheet" href="ShowtimeMovie/csss/owl-carousel.css">
+<link href="ShowtimeMovie/cssr/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="movieScreenings/css/styy.css"
+	type="text/css">
+<link
+	href="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+</head>
+
+<body>
+
+	<main ng-app="app" ng-controller="ctrl">
+		<script type="text/javascript"
+			src="movieScreenings/js/movieScreening-app.js"></script>
+		<style>
+.button1 {
+	background-color: white;
+	color: black;
+	border: 1px solid #111111;
+	border-radius: 5px;
+}
+</style>
+		<section class="breadcrumb-option">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb__text">
+							<div class="breadcrumb__links">
+								<a href="./index.html"><i class="bi bi-house-door-fill"></i></a>
+								<a href="./index.html">Rạp phim</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="breadcrumb-optionn">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="breadcrumb__text">
+							<div class="row">
+								<div class="col-lg-6 col-6">
+									<h2>
+										<strong>Lịch chiếu phim tháng 7/2023 trên Mama</strong>
+									</h2>
+									<h6>
+										<i class="bi bi-check-all"></i>Lịch phim đang chiếu luôn <strong>được
+											cập nhật mới nhất</strong>
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i><strong>Suất phim đang
+											chiếu dầy đủ </strong>các rạp
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i>Đặt phim đang chiếu <strong>siêu
+											nhanh</strong>
+									</h6>
+									<h6>
+										<i class="bi bi-check-all"></i> <strong>Đặt vé lịch
+											phim đang chiếu</strong> yêu thích mọi nơi
+									</h6>
+								</div>
+								<div class="col-lg-6 col-6">
+									<img src="ShowtimeMovie/img/momo.jpg" alt="">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="section-title mt-2">
+			<h2 style="color: rgb(238, 17, 153);">Phim đang chiếu</h2>
+		</div>
+		<section class="Am-img-slider-container">
+			<div class="swiper blog-slider">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" ng-value="movies[0]"
+						ng-if="movies[0]!=null">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt=""
+								src="image/{{movies[0].movieid}}_{{movies[0].region.trim()}}.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="image/{{movies[0].movieid}}_{{movies[0].region.trim()}}.jpg" />
+								<div class="overly">
+									<a ng-href="{{movie[0].trailerurl}}" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">{{movies[0].name}}</h2>
+							<p class="blog-slider__text" style="font-size: x-small;">{{movies[0].description}}</p>
+							<span class="blog-slider__rate"> IMDB
+								{{movies[0].imdb}}/10 </span>
+						</div>
+					</div>
+
+					<div class="swiper-slide" ng-value="movies[1]"
+						ng-if="movies[1]!=null">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt=""
+								src="image/{{movies[1].movieid}}_{{movies[1].region.trim()}}.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="image/{{movies[1].movieid}}_{{movies[1].region.trim()}}.jpg" />
+								<div class="overly">
+									<a ng-href="{{movie[1].trailerurl}}" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">{{movies[1].name}}</h2>
+							<p class="blog-slider__text" style="font-size: x-small;">{{movies[1].description}}</p>
+							<span class="blog-slider__rate"> IMDB
+								{{movies[1].imdb}}/10 </span>
+						</div>
+					</div>
+
+					<div class="swiper-slide" ng-value="movies[2]"
+						ng-if="movies[2]!=null">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt=""
+								src="image/{{movies[2].movieid}}_{{movies[2].region.trim()}}.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="image/{{movies[2].movieid}}_{{movies[2].region.trim()}}.jpg" />
+								<div class="overly">
+									<a ng-href="{{movie[2].trailerurl}}" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">{{movies[2].name}}</h2>
+							<p class="blog-slider__text" style="font-size: x-small;">{{movies[2].description}}</p>
+							<span class="blog-slider__rate"> IMDB
+								{{movies[2].imdb}}/10 </span>
+						</div>
+					</div>
+
+					<div class="swiper-slide" ng-value="movies[3]"
+						ng-if="movies[3]!=null">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt=""
+								src="image/{{movies[3].movieid}}_{{movies[3].region.trim()}}.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="image/{{movies[3].movieid}}_{{movies[3].region.trim()}}.jpg" />
+								<div class="overly">
+									<a ng-href="{{movie[3].trailerurl}}" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">{{movies[3].name}}</h2>
+							<p class="blog-slider__text" style="font-size: x-small;">{{movies[3].description}}</p>
+							<span class="blog-slider__rate"> IMDB
+								{{movies[3].imdb}}/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide" ng-value="movies[4]"
+						ng-if="movies[4]!=null">
+						<div class="blog-slider__imgs">
+
+							<img class="back-image" alt=""
+								src="image/{{movies[4].movieid}}_{{movies[4].region.trim()}}.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="image/{{movies[4].movieid}}_{{movies[4].region.trim()}}.jpg" />
+								<div class="overly">
+									<a ng-href="{{movie[4].trailerurl}}" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title" style="color: white;">{{movies[4].name}}</h2>
+							<p class="blog-slider__text" style="font-size: x-small;">{{movies[4].description}}</p>
+							<span class="blog-slider__rate"> IMDB
+								{{movies[4].imdb}}/10 </span>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		</section>
+		<section class="product spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="trending__product">
+							<div class="row">
+								<div class="col-lg-6 col-md-8 col-sm-8">
+									<div class="section-title">
+										<h4 style="color: rgb(238, 17, 153);">Tìm kiếm phim chiếu
+											rạp trên MaMa</h4>
+									</div>
+								</div>
+								<div class="col-lg-5 row">
+									<div class="nav-item dropdown position-static mb-3 mr-2 ">
+										<button class="button1 nav-link dropdown-toggle" href="#"
+											id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
+											aria-expanded="false">Thể loại</button>
+										<!-- Dropdown menu -->
+										<div class="dropdown-menu  " aria-labelledby="navbarDropdown"
+											style="width: 130%;">
+											<div class="container">
+												<div class="row ">
+													<div class="col-md-6 col-lg-4 mb-3 ">
+														<div class="list-group list-group-flush">
+															<a href="" class="list-group-item list-group-item-action">Dolor
+																sit</a> <a href=""
+																class="list-group-item list-group-item-action">Amet
+																consectetur</a> <a href=""
+																class="list-group-item list-group-item-action">Cras
+																justo odio</a> <a href=""
+																class="list-group-item list-group-item-action">Adipisicing
+																elit</a>
+														</div>
+													</div>
+													<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+														<div class="list-group list-group-flush">
+
+															<a href="" class="list-group-item list-group-item-action">Perspiciatis
+																quo</a> <a href=""
+																class="list-group-item list-group-item-action">Cras
+																justo odio</a> <a href=""
+																class="list-group-item list-group-item-action">Laudantium
+																maiores</a> <a href=""
+																class="list-group-item list-group-item-action">Provident
+																dolor</a>
+														</div>
+													</div>
+													<div class="col-md-6 col-lg-4 mb-3 mb-md-0">
+														<div class="list-group list-group-flush">
+
+															<a href="" class="list-group-item list-group-item-action">Cras
+																justo odio</a> <a href=""
+																class="list-group-item list-group-item-action">Est
+																iure</a> <a href=""
+																class="list-group-item list-group-item-action">Praesentium</a>
+															<a href="" class="list-group-item list-group-item-action">Laboriosam</a>
+															<a href="" class="list-group-item list-group-item-action">Cras
+																justo odio</a> <a href=""
+																class="list-group-item list-group-item-action">Est
+																iure</a> <a href=""
+																class="list-group-item list-group-item-action">Praesentium</a>
+															<a href="" class="list-group-item list-group-item-action">Laboriosam</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="product__item">
+								<div class="product__item__pic set-bg"
+									data-setbg="ShowtimeMovie/img/Conan.jpg">
+									<div class="ep">18+</div>
+								</div>
+								<div class="product__item__textt">
+									<ul>
+										<li style="font-size: small;">Hài</li>
+										<li style="font-size: small;">Hoạt Hình</li>
+									</ul>
+									<h5>
+										<a href="#">Boruto</a>
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="product__pagination">
+								<a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a>
+								<span>...</span> <a href="#">21</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+		</section>
+		<link rel="stylesheet" href="ShowtimeMovie/css/stle.css">
+
+		<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+		<link rel="stylesheet"
+			href="ShowtimeMovie/bootstrap-icons-1.10.3/bootstrap-icons.css">
+		<script src="ShowtimeMovie/js/jquery-3.3.1.min.js"></script>
+		<script src="ShowtimeMovie/js/bootstrap.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.nice-select.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.nicescroll.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.magnific-popup.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.countdown.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.slicknav.js"></script>
+		<script src="ShowtimeMovie/js/mixitup.min.js"></script>
+		<script src="ShowtimeMovie/js/owl.carousel.min.js"></script>
+		<script src="ShowtimeMovie/js/main.js"></script>
+		<script src="ShowtimeMovie/js/jquery-2.1.0.min.js"></script>
+		<script src="ShowtimeMovie/js/bootstrap.bundle.min.js"></script>
+		<script src="ShowtimeMovie/js/angular-route.min.js"></script>
+		<script src="ShowtimeMovie/js/angular.min.js"></script>
+		<script src="ShowtimeMovie/js/jquery.min.js"></script>
+		<script src="ShowtimeMovie/js/popper.min.js"></script>
+		<script src="ShowtimeMovie/js/plugin.js"></script>
+
+		<!-- Bootstrap -->
+		<!-- javascript -->
+		<script src="ShowtimeMovie/js/owl.carousel.js"></script>
+		<script
+			src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+		<script src="ShowtimeMovie/jss/owl-carousel.js"></script>
+		<script src="ShowtimeMovie/jss/accordions.js"></script>
+		<script src="ShowtimeMovie/jss/datepicker.js"></script>
+		<script src="ShowtimeMovie/jss/scrollreveal.min.js"></script>
+		<script src="ShowtimeMovie/jss/waypoints.min.js"></script>
+		<script src="ShowtimeMovie/jss/jquery.counterup.min.js"></script>
+		<script src="ShowtimeMovie/jss/imgfix.min.js"></script>
+		<script src="ShowtimeMovie/jss/slick.js"></script>
+		<script src="ShowtimeMovie/jss/lightbox.js"></script>
+		<script src="ShowtimeMovie/jss/isotope.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+		<script src="ShowtimeMovie/js/stle.js"></script>
+		<script src="ShowtimeMovie/js/main.js"></script>
+		<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+
+	</main>
+</body>
+
+</html>

@@ -35,10 +35,10 @@ public class Movie implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Updateat")
 	Date updateAt = new Date();
-
+	double imdb;	
 	String region;
-	Boolean isdelete;
-	String desciption;
+	Boolean isdeleted;
+	String description;
 	Integer age;
 	String trailerurl;
 	@Temporal(TemporalType.DATE)

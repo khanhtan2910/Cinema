@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.assignment.Service.CalendarService;
 import com.assignment.Service.CinemaService;
 
 @Controller
 public class CinemaController {
 	@Autowired
 	CinemaService cinemaService;
+	@Autowired
+	CalendarService calendarService;
 
 	@RequestMapping("/cinema")
 	public String Cinema(Model model) {
@@ -41,6 +44,7 @@ public class CinemaController {
 		}
 
 		LocalDate currentdate = LocalDate.now();
+		int currentDay = currentdate.getDayOfMonth();
 		int currentMonth = currentdate.getMonthValue();
 		int currentYear = currentdate.getYear();
 		String[] days = new String[] { "", "", "", "", "", "", "" };
@@ -48,6 +52,12 @@ public class CinemaController {
 		for (int i = 1; i < 7; i++) {
 			Calendar calendar = Calendar.getInstance();
 			calendar.set(Calendar.DAY_OF_MONTH, currentdate.getDayOfMonth() + i);
+			if (currentDay >= calendarService.maxDay(currentMonth, currentYear)) {
+				currentMonth+=1;
+			}else if(currentDay >= calendarService.maxDay(currentMonth, currentYear) && currentMonth ==12){
+				currentMonth =1;
+				currentYear+=1;
+			}
 			calendar.set(Calendar.MONTH, currentMonth);
 			calendar.set(Calendar.YEAR, currentYear);
 			Date day = calendar.getTime();
@@ -66,6 +76,7 @@ public class CinemaController {
 	public String cinemaWithAddress(@RequestParam(name = "cinemaId") String cinemaId, Model model) {
 		com.assignment.Entity.Cinema cinema = cinemaService.findById(Integer.parseInt(cinemaId));
 		LocalDate currentdate = LocalDate.now();
+		int currentDay = currentdate.getDayOfMonth();
 		int currentMonth = currentdate.getMonthValue();
 		int currentYear = currentdate.getYear();
 		String[] days = new String[] { "", "", "", "", "", "", "" };
@@ -73,6 +84,12 @@ public class CinemaController {
 		for (int i = 1; i < 7; i++) {
 			Calendar calendar = Calendar.getInstance();
 			calendar.set(Calendar.DAY_OF_MONTH, currentdate.getDayOfMonth() + i);
+			if (currentDay >= calendarService.maxDay(currentMonth, currentYear)) {
+				currentMonth+=1;
+			}else if(currentDay >= calendarService.maxDay(currentMonth, currentYear) && currentMonth ==12){
+				currentMonth =1;
+				currentYear+=1;
+			}
 			calendar.set(Calendar.MONTH, currentMonth);
 			calendar.set(Calendar.YEAR, currentYear);
 			Date day = calendar.getTime();
