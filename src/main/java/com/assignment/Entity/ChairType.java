@@ -29,4 +29,48 @@ public class ChairType implements Serializable{
 	@OneToMany(mappedBy = "chairType")
 	@JsonIgnore
 	List<Chair> Chairs;
+	public ChairType() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public ChairType(Integer chairtype, double price, String color, String name, List<Chair> chairs) {
+		super();
+		this.chairtype = chairtype;
+		this.price = price;
+		this.color = color;
+		this.name = name;
+		Chairs = chairs;
+	}
+	public Integer getChairtype() {
+		return chairtype;
+	}
+	public void setChairtype(Integer chairtype) {
+		this.chairtype = chairtype;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public List<Chair> getChairs() {
+		return Chairs;
+	}
+	public void setChairs(List<Chair> chairs) {
+		Chairs = chairs;
+	}
+	
+	
 }

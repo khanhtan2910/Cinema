@@ -11,8 +11,12 @@ public interface ImageService {
 	List<Image> findAll();
 
 	boolean existsById(Integer imageId);
+	
+
 
 	Image findById(Integer imageId);
+	
+	List<Image> findByName(String name);
 
 	void save(Image image);
 

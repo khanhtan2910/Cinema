@@ -63,7 +63,7 @@
 							<div class="row">
 								<div class="col-lg-6 col-6">
 									<h2>
-										<strong>Lịch chiếu phim tháng 7/2023 trên Mama</strong>
+										<strong>Lịch chiếu phim tháng 8/2023 trên Mama</strong>
 									</h2>
 									<h6>
 										<i class="bi bi-check-all"></i>Lịch phim đang chiếu luôn <strong>được
@@ -813,22 +813,22 @@
 
 
 		</section>
-		<h2
-			style="color: rgb(240, 17, 154); font-weight: bold; text-align: center;">Phim
-			đang chiếu</h2>
-		<section class="Am-img-slider-container" >
+		<h1 style="text-align: center; color: rgb(240, 17, 154);">
+			<strong> Phim đang chiếu </strong>
+		</h1>
+		<section class="Am-img-slider-container">
 			<div class="swiper blog-slider">
-				<div class="swiper-wrapper"  >
-					<div class="swiper-slide" ng-value="movies[0]" ng-if="movies[0]!=null">
-						<div class="blog-slider__imgs" >
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
 
-							<img class="back-image" alt="" src="image/{{movies[0].movieid}}_{{movies[0].region.trim()}}.jpg" />
+							<img class="back-image" alt="" src="ShowtimeMovie/img/Conan.jpg" />
 							<div class="movie-image-container">
 
 								<img class="movie-image  blog-slider__img" alt=""
-									src="image/{{movies[0].movieid}}_{{movies[0].region.trim()}}.jpg" />
+									src="ShowtimeMovie/img/Conan.jpg" />
 								<div class="overly">
-									<a href="{{movie[0].trailerurl}}" title="-1"> <svg
+									<a href="#" title="-1" data-toggle="modal" data-target="#exampleModal4"> <svg
 											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
 											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                         <path fill="currentColor"
@@ -840,22 +840,53 @@
 							</div>
 						</div>
 						<div class="blog-slider__content">
-							<h2 class="blog-slider__title" style="color: white;">{{movies[0].name}}</h2>
-							<p class="blog-slider__text" style="font-size: x-small;">{{movies[0].description}}</p>
-							<span class="blog-slider__rate"> IMDB {{movies[0].imdb}}/10 </span>
+							<a href="/mamadetalMovie"><h2 class="blog-slider__title" style="color: white;">
+							
+							Thám tử lừng danh Conan 26 : Tàu Ngầm Sắt Màu Đen</h2></a>
+							<p class="blog-slider__text">Hoạt hình,hình sự,bí ẩn,hành
+								động</p>
+							<span class="blog-slider__rate"> IMDB 9.4/10 </span>
 						</div>
-					</div>	
-					
-					<div class="swiper-slide" ng-value="movies[1]" ng-if="movies[1]!=null">
-						<div class="blog-slider__imgs" >
-
-							<img class="back-image" alt="" src="image/{{movies[1].movieid}}_{{movies[1].region.trim()}}.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
 							<div class="movie-image-container">
 
 								<img class="movie-image  blog-slider__img" alt=""
-									src="image/{{movies[1].movieid}}_{{movies[1].region.trim()}}.jpg" />
+									src="https://upload.wikimedia.org/wikipedia/en/a/a9/EndlessLove2014Poster.jpg" />
 								<div class="overly">
-									<a href="{{movie[1].trailerurl}}" title="-1"> <svg
+									<a href="#" title="-1"> <svg
+											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
+                                    </svg>
+									</a>
+
+								</div>
+							</div>
+						</div>
+						
+						<div class="blog-slider__content">
+							<h2 class="blog-slider__title">Endless Love 2014</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Atque, illum odit? Odit ipsum enim
+								sapiente eius, ad numqure.</p>
+							<span class="blog-slider__rate"> IMDB 7.5/10 </span>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+							<div class="movie-image-container">
+
+								<img class="movie-image  blog-slider__img" alt=""
+									src="https://s3.amazonaws.com/static.rogerebert.com/uploads/movie/movie_poster/endless-2020/large_endless-poster.jpg" />
+								<div class="overly">
+									<a href="#" title="-1"> <svg
 											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
 											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                         <path fill="currentColor"
@@ -867,22 +898,23 @@
 							</div>
 						</div>
 						<div class="blog-slider__content">
-							<h2 class="blog-slider__title" style="color: white;">{{movies[1].name}}</h2>
-							<p class="blog-slider__text" style="font-size: x-small;">{{movies[1].description}}</p>
-							<span class="blog-slider__rate"> IMDB {{movies[1].imdb}}/10 </span>
+							<h2 class="blog-slider__title">endless 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
 						</div>
-					</div>	
-					
-					<div class="swiper-slide" ng-value="movies[2]" ng-if="movies[2]!=null">
-						<div class="blog-slider__imgs" >
-
-							<img class="back-image" alt="" src="image/{{movies[2].movieid}}_{{movies[2].region.trim()}}.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image" alt=""
+								src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
 							<div class="movie-image-container">
 
 								<img class="movie-image  blog-slider__img" alt=""
-									src="image/{{movies[2].movieid}}_{{movies[2].region.trim()}}.jpg" />
+									src="https://flxt.tmsimg.com/assets/p16919037_p_v8_aa.jpg" />
 								<div class="overly">
-									<a href="{{movie[2].trailerurl}}" title="-1"> <svg
+									<a href="#" title="-1"> <svg
 											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
 											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                         <path fill="currentColor"
@@ -894,22 +926,23 @@
 							</div>
 						</div>
 						<div class="blog-slider__content">
-							<h2 class="blog-slider__title" style="color: white;">{{movies[2].name}}</h2>
-							<p class="blog-slider__text" style="font-size: x-small;">{{movies[2].description}}</p>
-							<span class="blog-slider__rate"> IMDB {{movies[2].imdb}}/10 </span>
+							<h2 class="blog-slider__title">Underwater 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
 						</div>
-					</div>	
-					
-					<div class="swiper-slide" ng-value="movies[3]" ng-if="movies[3]!=null">
-						<div class="blog-slider__imgs" >
-
-							<img class="back-image" alt="" src="image/{{movies[3].movieid}}_{{movies[3].region.trim()}}.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<div class="blog-slider__imgs">
+							<img class="back-image  blog-slider__backimg" alt=""
+								src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
 							<div class="movie-image-container">
 
 								<img class="movie-image  blog-slider__img" alt=""
-									src="image/{{movies[3].movieid}}_{{movies[3].region.trim()}}.jpg" />
+									src="https://www.brhspawprint.com/wp-content/uploads/2020/10/61idSH9iPTL._AC_SY741_.jpg" />
 								<div class="overly">
-									<a href="{{movie[3].trailerurl}}" title="-1"> <svg
+									<a href="#" title="-3"> <svg
 											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
 											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                         <path fill="currentColor"
@@ -921,37 +954,13 @@
 							</div>
 						</div>
 						<div class="blog-slider__content">
-							<h2 class="blog-slider__title" style="color: white;">{{movies[3].name}}</h2>
-							<p class="blog-slider__text" style="font-size: x-small;">{{movies[3].description}}</p>
-							<span class="blog-slider__rate"> IMDB {{movies[3].imdb}}/10 </span>
+							<h2 class="blog-slider__title">Mulan 2020</h2>
+							<p class="blog-slider__text">Lorem ipsum dolor, sit amet
+								consm dolor, sit amet consectetur adipisilo natus.ectetur
+								adipisilo natus.</p>
+							<span class="blog-slider__rate"> IMDB 3.7/10 </span>
 						</div>
-					</div>	
-					<div class="swiper-slide" ng-value="movies[4]" ng-if="movies[4]!=null">
-						<div class="blog-slider__imgs" >
-
-							<img class="back-image" alt="" src="image/{{movies[4].movieid}}_{{movies[4].region.trim()}}.jpg" />
-							<div class="movie-image-container">
-
-								<img class="movie-image  blog-slider__img" alt=""
-									src="image/{{movies[4].movieid}}_{{movies[4].region.trim()}}.jpg" />
-								<div class="overly">
-									<a href="{{movie[4].trailerurl}}" title="-1"> <svg
-											xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-											preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-												d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z" />
-                                    </svg>
-									</a>
-
-								</div>
-							</div>
-						</div>
-						<div class="blog-slider__content">
-							<h2 class="blog-slider__title" style="color: white;">{{movies[4].name}}</h2>
-							<p class="blog-slider__text" style="font-size:x-small;">{{movies[4].description}}</p>
-							<span class="blog-slider__rate"> IMDB {{movies[4].imdb}}/10 </span>
-						</div>
-					</div>	
+					</div>
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>

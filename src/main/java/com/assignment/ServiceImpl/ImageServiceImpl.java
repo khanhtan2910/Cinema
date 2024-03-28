@@ -31,6 +31,12 @@ public class ImageServiceImpl implements ImageService  {
 		// TODO Auto-generated method stub
 		return imageDAO.findById(imageId).get();
 	}
+	
+	@Override
+	public List<Image> findByName(String name) {
+		// TODO Auto-generated method stub
+		return imageDAO.findByName(name);
+	}
 
 	@Override
 	public void save(Image image) {

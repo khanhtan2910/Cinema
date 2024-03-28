@@ -36,4 +36,56 @@ public class Room implements Serializable{
 	@ManyToOne
 	@JoinColumn(name  ="Cinemaid")
 	Cinema cinema;
+	public Room() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Room(Integer roomid, String name, String type, List<Chair> chairs, List<Show> shows, Cinema cinema) {
+		super();
+		this.roomid = roomid;
+		this.name = name;
+		this.type = type;
+		this.chairs = chairs;
+		this.shows = shows;
+		this.cinema = cinema;
+	}
+	public Integer getRoomid() {
+		return roomid;
+	}
+	public void setRoomid(Integer roomid) {
+		this.roomid = roomid;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public List<Chair> getChairs() {
+		return chairs;
+	}
+	public void setChairs(List<Chair> chairs) {
+		this.chairs = chairs;
+	}
+	public List<Show> getShows() {
+		return shows;
+	}
+	public void setShows(List<Show> shows) {
+		this.shows = shows;
+	}
+	public Cinema getCinema() {
+		return cinema;
+	}
+	public void setCinema(Cinema cinema) {
+		this.cinema = cinema;
+	}
+	
+	
+	
 }

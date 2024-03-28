@@ -1,5 +1,10 @@
 package com.assignment.Service;
 
-public interface RoleService {
+import java.util.List;
 
+import com.assignment.Entity.Role;
+
+
+public interface RoleService {
+	public List<Role> findAll() ;
 }

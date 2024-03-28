@@ -48,5 +48,71 @@ public class Booking implements Serializable{
 	@OneToMany(mappedBy = "Booking")
 	@JsonIgnore
 	List<Payment> payments;
+	public Booking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Booking(Integer bookid, com.assignment.Entity.Users users, Boolean paidstatus, Date createAt, Date updateAt,
+			String code, List<ShowBooking> showBookings, List<Payment> payments) {
+		super();
+		this.bookid = bookid;
+		Users = users;
+		this.paidstatus = paidstatus;
+		this.createAt = createAt;
+		this.updateAt = updateAt;
+		this.code = code;
+		this.showBookings = showBookings;
+		this.payments = payments;
+	}
+	public Integer getBookid() {
+		return bookid;
+	}
+	public void setBookid(Integer bookid) {
+		this.bookid = bookid;
+	}
+	public Users getUsers() {
+		return Users;
+	}
+	public void setUsers(Users users) {
+		Users = users;
+	}
+	public Boolean getPaidstatus() {
+		return paidstatus;
+	}
+	public void setPaidstatus(Boolean paidstatus) {
+		this.paidstatus = paidstatus;
+	}
+	public Date getCreateAt() {
+		return createAt;
+	}
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+	public Date getUpdateAt() {
+		return updateAt;
+	}
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public List<ShowBooking> getShowBookings() {
+		return showBookings;
+	}
+	public void setShowBookings(List<ShowBooking> showBookings) {
+		this.showBookings = showBookings;
+	}
+	public List<Payment> getPayments() {
+		return payments;
+	}
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
+	
+	
 	
 }

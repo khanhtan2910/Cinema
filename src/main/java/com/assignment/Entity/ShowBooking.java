@@ -35,5 +35,41 @@ public class ShowBooking implements Serializable{
 	@ManyToOne
 	@JoinColumn(name  ="Chairid")
 	Chair chair;
+	public ShowBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public ShowBooking(Integer showbookingid, com.assignment.Entity.Booking booking, Show show, Chair chair) {
+		super();
+		this.showbookingid = showbookingid;
+		Booking = booking;
+		this.show = show;
+		this.chair = chair;
+	}
+	public Integer getShowbookingid() {
+		return showbookingid;
+	}
+	public void setShowbookingid(Integer showbookingid) {
+		this.showbookingid = showbookingid;
+	}
+	public Booking getBooking() {
+		return Booking;
+	}
+	public void setBooking(Booking booking) {
+		Booking = booking;
+	}
+	public Show getShow() {
+		return show;
+	}
+	public void setShow(Show show) {
+		this.show = show;
+	}
+	public Chair getChair() {
+		return chair;
+	}
+	public void setChair(Chair chair) {
+		this.chair = chair;
+	}
+	
 	
 }

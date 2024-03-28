@@ -11,9 +11,10 @@ import com.assignment.Entity.Movie;
 
 
 
-public interface MovieDAO  extends JpaRepository<Movie, Integer>{
+
+public interface MovieDAO  extends JpaRepository<Movie, Long>{
+	
+	@Query("SELECT o FROM Movie o WHERE o.name LIKE ?1")
 	List<Movie> findAllByNameLike(String keywords);
 	
-	@Query("SELECT m FROM Movie m WHERE m.movieid in ( SELECT mt.movie.movieid FROM m.movieTypes mt where mt.category.categoryid = ?1)")
-	List<Movie> findAllByCategory(Integer cid);
 }

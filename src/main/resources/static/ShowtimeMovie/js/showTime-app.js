@@ -42,21 +42,11 @@ app.controller("ctrl", function($scope, $http) {
 	$scope.cinema = $scope.cinemas[0];
 
 	$scope.searchAddress = function(address) {
-		$scope.cinemas = [];
 		var url = `${host}`;
 		$http.get(url).then(resp => {
-			var items = [];
+
 			items = resp.data;
-			if (address != '') {
-				$scope.Address = address;
-			}
-			document.getElementById("showAddress").innerHTML = $scope.Address;
-			for (let i of items) {
-				if (i.address.includes($scope.Address)) {
-					$scope.cinemas.push(i);
-					$scope.cinema = $scope.cinemas[0];
-				};
-			}
+			
 			console.log("Success", resp);
 		}).catch(error => {
 			console.log("Error", error)

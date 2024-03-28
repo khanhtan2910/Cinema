@@ -36,6 +36,11 @@ public class ImageRestController {
 		}
 		return ResponseEntity.ok(imageService.findById(imageId));
 	}
+	@GetMapping("/rest/images/name/{name}")
+	public ResponseEntity<List<Image>> getOneWithName(@PathVariable("name") String name) { 
+		
+		return ResponseEntity.ok(imageService.findByName(name));
+	}
 	@PostMapping("/rest/images")
 	public ResponseEntity<Image> post(@RequestBody Image image){
 		if (imageService.existsById(image.getImageid())) {
@@ -52,6 +57,7 @@ public class ImageRestController {
 		imageService.save(image);
 		return ResponseEntity.ok(image);
 	}
+	
 	@DeleteMapping("/rest/images/{imageId}")
 	public ResponseEntity<Void> delete(@PathVariable("imageId") Integer imageId){
 		if (!imageService.existsById(imageId)) {

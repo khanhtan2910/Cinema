@@ -10,12 +10,26 @@ import com.assignment.Entity.Category;
 import com.assignment.Service.CategoryService;
 @Service
 public class CategoryServiceImpl implements CategoryService{
-		@Autowired
-		CategoryDAO categoryDAO;
+	@Autowired
+	CategoryDAO dao;
 
-		@Override
-		public List<Category> findAll() {
-			// TODO Auto-generated method stub
-			return categoryDAO.findAll();
-		}
+	public List<Category> findAll() {
+		return dao.findAll();
+	}
+
+	public Category findById(Integer categoryid) {
+		return dao.findById(categoryid).get();
+	}
+
+	public Category create(Category category) {
+		return dao.save(category);
+	}
+
+	public Category update(Category category) {
+		return dao.save(category);
+	}
+
+	public void delete(Integer categoryid) {
+		dao.deleteById(categoryid);
+	}
 }

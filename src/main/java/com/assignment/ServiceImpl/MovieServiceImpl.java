@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.assignment.DAO.MovieDAO;
 import com.assignment.Entity.Movie;
 import com.assignment.Service.MovieService;
+
 @Service
 public class MovieServiceImpl implements MovieService{
 	@Autowired
@@ -30,10 +31,21 @@ public class MovieServiceImpl implements MovieService{
 		return movieDAO.findAllByNameLike(keyword);
 	}
 	
-	@Override
-	public List<Movie> findAllByCategory(String cid) {
-		// TODO Auto-generated method stub
-		return movieDAO.findAllByCategory(Integer.valueOf(cid));
+	
+	public Movie findById(Long movieid) {
+		return movieDAO.findById(movieid).get();
+	}
+
+	public Movie create(Movie movie) {
+		return movieDAO.save(movie);
+	}
+
+	public Movie update(Movie movie) {
+		return movieDAO.save(movie);
+	}
+
+	public void delete(Long movieid) {
+		movieDAO.deleteById(movieid);
 	}
 	
 	@Override
@@ -55,6 +67,7 @@ public class MovieServiceImpl implements MovieService{
 
         return moviePage;
     }
+
 
 	
 

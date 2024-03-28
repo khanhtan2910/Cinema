@@ -21,42 +21,16 @@ import com.assignment.Service.SessionService;
 
 @Controller
 public class MovieScreeningsController {
-	@Autowired
-	MovieService movieService;
-	@Autowired
-	SessionService session;
-
-	@RequestMapping("/movieScreenings")
-
-	public String searchAndPage(Model model, @RequestParam("page") Optional<Integer> page,
-			@RequestParam("size") Optional<Integer> size,  @RequestParam("keywords") Optional<String> keyword,@RequestParam("cid") Optional<String> cid ) {
-		String kwords = keyword.orElse(session.get("keywords", ""));
-		session.set("keywords", kwords);
-		
-		int currentPage = page.orElse(1);
-		int pageSize = size.orElse(9);
-
-		Page<Movie> moviePage;
-		if(cid.isPresent()) {
-			 moviePage = movieService.findPaginated(PageRequest.of(currentPage - 1, pageSize), movieService.findAllByCategory(cid.get()));
-		}else {
-			 moviePage = movieService.findPaginated(PageRequest.of(currentPage - 1, pageSize),movieService.findAllByName("%" + kwords + "%"));
-		}
-		model.addAttribute("moviePage", moviePage);
-
-		int totalPages = moviePage.getTotalPages();
-		if (totalPages > 0) {
-			List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
-			model.addAttribute("pageNumbers", pageNumbers);
-		}
-
-		return "movieScreenings/movie";
+	@RequestMapping("/mamaMovie")
+	public String Movie() {
+		return "movieScreenings/moviee";
 	}
 
-	@RequestMapping("/movieScreeningsDetail{movieId}")
-	public String MovieScreeningsDetail(Model model, @PathVariable("movieId") Integer movieId) {
-
+	@RequestMapping("/mamadetalMovie")
+	public String Moviedetial() {
 		return "movieScreenings/detailMovie";
 	}
+	}
 
-}
+	
+

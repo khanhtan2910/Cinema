@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MaMaCinema {
 	@RequestMapping("/Home")
 	public String Home() {
-		return "";
+		return "redirect:/assets/admin/index.html";
 	}
 }

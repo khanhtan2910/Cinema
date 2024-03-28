@@ -39,5 +39,63 @@ public class Chair implements Serializable {
 	@OneToMany(mappedBy ="chair")
 	@JsonIgnore
 	List<ShowBooking> showBookings;
+	public Chair() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Chair(Integer chairid, Integer col, String row, Boolean isActive, ChairType chairType, Room room,
+			List<ShowBooking> showBookings) {
+		super();
+		this.chairid = chairid;
+		this.col = col;
+		this.row = row;
+		this.isActive = isActive;
+		this.chairType = chairType;
+		this.room = room;
+		this.showBookings = showBookings;
+	}
+	public Integer getChairid() {
+		return chairid;
+	}
+	public void setChairid(Integer chairid) {
+		this.chairid = chairid;
+	}
+	public Integer getCol() {
+		return col;
+	}
+	public void setCol(Integer col) {
+		this.col = col;
+	}
+	public String getRow() {
+		return row;
+	}
+	public void setRow(String row) {
+		this.row = row;
+	}
+	public Boolean getIsActive() {
+		return isActive;
+	}
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+	public ChairType getChairType() {
+		return chairType;
+	}
+	public void setChairType(ChairType chairType) {
+		this.chairType = chairType;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	public List<ShowBooking> getShowBookings() {
+		return showBookings;
+	}
+	public void setShowBookings(List<ShowBooking> showBookings) {
+		this.showBookings = showBookings;
+	}
+	
 	
 }

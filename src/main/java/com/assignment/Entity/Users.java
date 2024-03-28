@@ -41,4 +41,63 @@ public class Users implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "Roleid")
 	Role role;
+	public Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Users(Integer userid, String password, Date dateOfBirth, Integer phone, Boolean isadmin,
+			List<com.assignment.Entity.Booking> booking, Role role) {
+		super();
+		this.userid = userid;
+		this.password = password;
+		DateOfBirth = dateOfBirth;
+		this.phone = phone;
+		this.isadmin = isadmin;
+		Booking = booking;
+		this.role = role;
+	}
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Date getDateOfBirth() {
+		return DateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		DateOfBirth = dateOfBirth;
+	}
+	public Integer getPhone() {
+		return phone;
+	}
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
+	public Boolean getIsadmin() {
+		return isadmin;
+	}
+	public void setIsadmin(Boolean isadmin) {
+		this.isadmin = isadmin;
+	}
+	public List<Booking> getBooking() {
+		return Booking;
+	}
+	public void setBooking(List<Booking> booking) {
+		Booking = booking;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
 }

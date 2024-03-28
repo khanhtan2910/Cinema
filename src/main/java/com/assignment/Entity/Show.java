@@ -53,4 +53,77 @@ public class Show implements Serializable{
 	@Column(name = "Endtime")
 	Date EndTime = new Date();
 	String status;
+	public Show() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Show(Integer showid, Room room, List<ShowBooking> showBookings, Movie movie, Date createAt, Date date,
+			Date startTime, Date endTime, String status) {
+		super();
+		this.showid = showid;
+		this.room = room;
+		this.showBookings = showBookings;
+		this.movie = movie;
+		this.createAt = createAt;
+		this.date = date;
+		this.startTime = startTime;
+		EndTime = endTime;
+		this.status = status;
+	}
+	public Integer getShowid() {
+		return showid;
+	}
+	public void setShowid(Integer showid) {
+		this.showid = showid;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	public List<ShowBooking> getShowBookings() {
+		return showBookings;
+	}
+	public void setShowBookings(List<ShowBooking> showBookings) {
+		this.showBookings = showBookings;
+	}
+	public Movie getMovie() {
+		return movie;
+	}
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+	public Date getCreateAt() {
+		return createAt;
+	}
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public Date getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndTime() {
+		return EndTime;
+	}
+	public void setEndTime(Date endTime) {
+		EndTime = endTime;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 }

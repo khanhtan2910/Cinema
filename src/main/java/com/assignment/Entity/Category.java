@@ -34,5 +34,56 @@ public class Category implements Serializable{
 	
 	@OneToMany(mappedBy = "category")
 	@JsonIgnore
-	List<MovieType> movieTypes;
+	List<Movietype> movieTypes;
+
+
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Category(Integer categoryid, String name, Date createAt, List<Movietype> movieTypes, List<Movie> movie) {
+		super();
+		this.categoryid = categoryid;
+		this.name = name;
+		this.createAt = createAt;
+		this.movieTypes = movieTypes;
+	}
+
+	public Integer getCategoryid() {
+		return categoryid;
+	}
+
+	public void setCategoryid(Integer categoryid) {
+		this.categoryid = categoryid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public List<Movietype> getMovieTypes() {
+		return movieTypes;
+	}
+
+	public void setMovieTypes(List<Movietype> movieTypes) {
+		this.movieTypes = movieTypes;
+	}
+
+	
+	
+	
+	
 }

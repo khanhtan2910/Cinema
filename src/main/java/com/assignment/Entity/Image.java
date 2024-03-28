@@ -31,5 +31,56 @@ public class Image implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Uploadat")
 	Date uploadAt = new Date();
+	public Image() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Image(Integer imageid, String path, String itemid, String itemtype, String name, Date uploadAt) {
+		super();
+		this.imageid = imageid;
+		this.path = path;
+		this.itemid = itemid;
+		this.itemtype = itemtype;
+		this.name = name;
+		this.uploadAt = uploadAt;
+	}
+	public Integer getImageid() {
+		return imageid;
+	}
+	public void setImageid(Integer imageid) {
+		this.imageid = imageid;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getItemid() {
+		return itemid;
+	}
+	public void setItemid(String itemid) {
+		this.itemid = itemid;
+	}
+	public String getItemtype() {
+		return itemtype;
+	}
+	public void setItemtype(String itemtype) {
+		this.itemtype = itemtype;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Date getUploadAt() {
+		return uploadAt;
+	}
+	public void setUploadAt(Date uploadAt) {
+		this.uploadAt = uploadAt;
+	}
+	
+	
 	
 }
